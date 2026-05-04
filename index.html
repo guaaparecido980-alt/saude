@@ -2157,7 +2157,8 @@ em { font-style: italic; }
      A regra: se você "percebe" a animação acontecendo em <2 segundos, ela é rápida demais.
      Aqui tudo se move tão devagar que vira respiração visual. */
 
-  /* TOPBAR: marquee SLOW, leitura completamente confortável */
+  /* TOPBAR: marquee SLOW MOTION extremo, leitura completamente confortável.
+     Usamos shorthand completo pra GARANTIR override total da regra desktop. */
   .topbar {
     padding: 7px 0;
     font-size: 11px;
@@ -2166,7 +2167,7 @@ em { font-style: italic; }
     mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
   }
   .topbar__track {
-    animation-duration: 180s; /* desktop: 40s — câmera lenta de verdade */
+    animation: topbarScroll 200s linear infinite !important;
     gap: 32px;
   }
 
@@ -2181,7 +2182,7 @@ em { font-style: italic; }
   .hero__sparks {
     /* sparks quase imperceptíveis se movendo */
     opacity: .35;
-    animation-duration: 180s; /* desktop: 32s */
+    animation: sparksFloat 200s linear infinite;
   }
 
   /* PRODUTO HERO: respiração quase imperceptível, só pra dar vida sem chamar atenção */
@@ -2231,7 +2232,7 @@ em { font-style: italic; }
 
   /* KIT DESTACADO: border beam slow motion */
   .kit--featured::before {
-    animation-duration: 24s; /* desktop: 4s */
+    animation: beamRotate 24s linear infinite;
     opacity: .8;
   }
 
@@ -2284,9 +2285,9 @@ em { font-style: italic; }
     0%, 100% { transform: translate3d(0, 0, 0); }
     50% { transform: translate3d(0, -3px, 0); }
   }
-  /* Topbar marquee tipo "passeio de barco" — texto toma tempo pra atravessar a tela */
-  .topbar__track { animation-duration: 220s; }
-  .hero__sparks { opacity: .25; animation-duration: 220s; }
+  /* Topbar marquee SLOW MOTION máximo no SE: shorthand explícito pra evitar override */
+  .topbar__track { animation: topbarScroll 240s linear infinite !important; }
+  .hero__sparks { opacity: .25; animation: sparksFloat 240s linear infinite !important; }
 }
 
 /* === Conexões lentas (Save-Data) e displays low-end: desliga animações decorativas === */
