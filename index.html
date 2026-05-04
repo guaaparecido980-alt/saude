@@ -866,13 +866,35 @@ em { font-style: italic; }
 }
 .spotlight__bottle {
   width: 100%;
-  max-width: 440px;
-  filter: drop-shadow(0 30px 60px rgba(225, 29, 44, .4));
-  animation: bottleFloat 7s ease-in-out infinite;
-  border-radius: 24px;
+  max-width: 480px;
+  border-radius: var(--r-lg);
   overflow: hidden;
+  box-shadow:
+    0 30px 80px -20px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(232, 199, 126, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  position: relative;
+  transition: transform .4s cubic-bezier(.16,.84,.44,1);
 }
-.spotlight__bottle img { width: 100%; height: auto; display: block; }
+.spotlight__bottle::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-lg);
+  background: linear-gradient(180deg,
+    transparent 0%,
+    transparent 70%,
+    rgba(8, 3, 10, 0.15) 100%);
+  pointer-events: none;
+}
+.spotlight__bottle:hover {
+  transform: translateY(-6px) scale(1.01);
+}
+.spotlight__bottle img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
 .spotlight__copy .eyebrow { margin-bottom: 22px; }
 .spotlight__title {
@@ -2329,7 +2351,7 @@ em { font-style: italic; }
     <div class="spotlight__grid">
       <div class="spotlight__visual reveal">
         <div class="spotlight__bottle">
-          <img src="quero-mais.png" alt="QUERO+ Velmora — Pó sabor frutas vermelhas, 210g" width="500" height="500" loading="lazy">
+          <img src="quero-mais-lifestyle.jpg" srcset="quero-mais-lifestyle.jpg 800w, quero-mais-lifestyle@2x.jpg 1200w" sizes="(max-width: 768px) 90vw, 440px" alt="QUERO+ Velmora — Sabor que encanta, resultados que motivam. Pote 210g com frutas vermelhas naturais" width="800" height="800" loading="lazy">
         </div>
       </div>
 
