@@ -2218,16 +2218,26 @@ em { font-style: italic; }
   .final-cta__glow--2 {
     animation: none !important;
   }
-  /* Topbar mobile: estática, sem movimento */
+  /* Topbar mobile: estática, 1 item só, sem quebra */
+  .topbar {
+    padding: 7px 0;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
   .topbar__track {
     animation: none !important;
     transform: none !important;
+    display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 24px;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0;
+    white-space: nowrap;
+    overflow: hidden;
   }
-  /* Items do topbar mobile: mostra só os primeiros 2 (resto fica escondido pra não quebrar layout) */
-  .topbar__item:nth-child(n+3) { display: none; }
+  /* Mostra só o primeiro item (Garantia de satisfação) — o resto escondido */
+  .topbar__item { flex-shrink: 0; }
+  .topbar__item:not(:first-child) { display: none; }
   /* Pote: sombra estática elegante (não floating) */
   .hero__bottle-img {
     filter: drop-shadow(0 18px 30px rgba(225, 29, 44, .28));
