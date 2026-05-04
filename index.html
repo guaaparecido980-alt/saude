@@ -702,6 +702,8 @@ em { font-style: italic; }
   position: relative;
   width: 100%;
   max-width: 480px;
+  /* Isolamento de layout — impede que mudanças no filho propaguem reflow pro pai */
+  contain: layout style;
 }
 .hero__product-glow {
   position: absolute;
@@ -1996,55 +1998,38 @@ em { font-style: italic; }
   }
 
   .nav {
-    display: flex; /* sempre flex (não none) — controlamos visibilidade com opacity/transform */
+    display: none; /* fechado: sumido completamente, não ocupa espaço, não recebe touch */
     flex-direction: column;
     position: fixed;
     top: 70px;
     left: 0; right: 0;
     bottom: 0;
-    height: calc(100vh - 70px); /* fallback browsers antigos */
-    height: calc(100dvh - 70px); /* dvh = dynamic viewport, não muda com iOS bar */
+    height: calc(100vh - 70px);
+    height: calc(100dvh - 70px);
     background: #0A0405;
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
     padding: 30px 24px 40px;
     gap: 0;
     border-top: 1px solid var(--line-gold);
     z-index: 89;
     overflow-y: auto;
     box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-    /* Estado fechado: invisível, deslocado e sem interação */
-    opacity: 0;
-    transform: translateY(-12px);
-    pointer-events: none;
-    transition: opacity .5s ease, transform .5s cubic-bezier(.16,.84,.44,1);
-    will-change: opacity, transform;
+    -webkit-overflow-scrolling: touch;
   }
   .nav.open {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+    display: flex;
+    /* Animação de entrada via animation (uma única vez ao abrir, sem will-change persistente) */
+    animation: navSlideIn .35s cubic-bezier(.16,.84,.44,1);
   }
-  /* Links com micro-stagger ao abrir (fade-in escalonado, premium feel) */
+  @keyframes navSlideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
   .nav a {
     padding: 18px 0;
     font-size: 17px;
     border-bottom: 1px solid var(--line);
     color: var(--text);
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity .55s ease, transform .55s cubic-bezier(.16,.84,.44,1), color .25s ease;
   }
-  .nav.open a {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .nav.open a:nth-child(1) { transition-delay: .12s; }
-  .nav.open a:nth-child(2) { transition-delay: .20s; }
-  .nav.open a:nth-child(3) { transition-delay: .28s; }
-  .nav.open a:nth-child(4) { transition-delay: .36s; }
-  .nav.open a:nth-child(5) { transition-delay: .44s; }
-  .nav.open a:nth-child(6) { transition-delay: .52s; }
   .nav a:last-child { border-bottom: none; }
 
   /* CTA WhatsApp dentro do menu mobile */
@@ -2162,7 +2147,7 @@ em { font-style: italic; }
     mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
   }
   .topbar__track {
-    animation: topbarScroll 35s linear infinite !important;
+    animation: topbarScroll 26s linear infinite !important;
     gap: 32px;
   }
 
@@ -2176,35 +2161,34 @@ em { font-style: italic; }
   }
   .hero__sparks {
     opacity: .35;
-    animation: sparksFloat 80s linear infinite;
+    animation: sparksFloat 50s linear infinite;
   }
 
-  /* === POTE: SOLUÇÃO DEFINITIVA ===
-     Animamos o WRAPPER (.hero__product), NÃO a imagem.
-     A imagem fica imóvel, sem will-change, sem animation-delay, sem conflito.
-     O wrapper não tem .reveal nem nada que possa conflitar.
-     Resultado: ZERO chance de bug, animação 100% previsível. */
+  /* === POTE: 100% ESTÁTICO NO MOBILE ===
+     Tentei animar a imagem, depois o wrapper, com delays, com translate3d, com tudo.
+     Em algumas combinações específicas de iOS/Android, as transformações geravam
+     reflow loops que aceleravam exponencialmente.
+     SOLUÇÃO DEFINITIVA: pote NÃO mexe. Toda "vida" vem do glow atrás dele
+     (animação só de OPACITY — única coisa que JAMAIS causa reflow). */
   .hero__product {
-    animation: bottleFloatMobile 6s ease-in-out infinite;
+    animation: none;
   }
   .hero__bottle-img {
-    /* Imagem NÃO anima — fica parada dentro do wrapper que respira */
     animation: none;
     filter: drop-shadow(0 18px 28px rgba(225, 29, 44, .3));
-    /* Remove will-change pra evitar criação de camada de composição extra */
     will-change: auto;
   }
-  @keyframes bottleFloatMobile {
-    0%, 100% { transform: translate3d(0, 0, 0); }
-    50% { transform: translate3d(0, -4px, 0); }
-  }
 
-  /* GLOW DO PRODUTO: 100% ESTÁTICO no mobile.
-     Era o que causava a "luz girando" no Safari (blur + opacity animada). */
+  /* GLOW DO PRODUTO: respiração SUTIL via opacity — única animação 100% segura.
+     Opacity é a ÚNICA propriedade que NUNCA causa reflow nem repaint pesado.
+     Sem scale, sem translate, sem blur animado. Só opacity. */
   .hero__product-glow {
-    animation: none;
+    animation: glowBreathe 5s ease-in-out infinite;
     filter: blur(28px);
-    opacity: .55;
+  }
+  @keyframes glowBreathe {
+    0%, 100% { opacity: .45; }
+    50% { opacity: .7; }
   }
 
   /* BADGE FLUTUANTE MOBILE: 100% ESTÁTICO */
@@ -2222,8 +2206,8 @@ em { font-style: italic; }
     animation: dotPulseMobile 4s ease-in-out infinite;
   }
   @keyframes dotPulseMobile {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: .65; transform: scale(1.15); }
+    0%, 100% { opacity: 1; }
+    50% { opacity: .55; }
   }
 
   /* KIT DESTACADO: border beam em ritmo lento */
@@ -2277,14 +2261,9 @@ em { font-style: italic; }
   }
 
   /* === Telas muito pequenas (iPhone SE, etc) === */
-  /* Float ainda mais sutil no SE */
-  @keyframes bottleFloatMobile {
-    0%, 100% { transform: translate3d(0, 0, 0); }
-    50% { transform: translate3d(0, -3px, 0); }
-  }
-  /* Topbar marquee em velocidade ligeiramente mais lenta no SE pra leitura */
-  .topbar__track { animation: topbarScroll 45s linear infinite !important; }
-  .hero__sparks { opacity: .25; animation: sparksFloat 90s linear infinite !important; }
+  /* Topbar marquee em velocidade boa pra leitura */
+  .topbar__track { animation: topbarScroll 32s linear infinite !important; }
+  .hero__sparks { opacity: .25; animation: sparksFloat 60s linear infinite !important; }
 }
 
 /* === Conexões lentas (Save-Data) e displays low-end: desliga animações decorativas === */
