@@ -345,7 +345,7 @@ em { font-style: italic; }
   text-transform: uppercase;
   border-radius: 100px;
   cursor: pointer;
-  transition: all .5s cubic-bezier(.4, 0, .2, 1);
+  transition: transform .5s cubic-bezier(.4,0,.2,1), border-color .5s ease, background .5s ease, color .5s ease;
   text-decoration: none;
   white-space: nowrap;
   border: 1.5px solid transparent;
@@ -542,9 +542,10 @@ em { font-style: italic; }
 
 .burger {
   display: none;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   position: relative;
+  z-index: 100;
   border: 1px solid var(--line);
   border-radius: 50%;
   background: rgba(232, 199, 126, .04);
@@ -560,38 +561,34 @@ em { font-style: italic; }
   border-color: var(--gold);
   background: rgba(232, 199, 126, .08);
 }
-.burger__icon {
-  width: 18px;
-  height: 14px;
-  position: relative;
+.burger__svg {
+  width: 22px;
+  height: 22px;
   display: block;
   margin: 0 auto;
   pointer-events: none;
 }
-.burger__line {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 1.5px;
-  background: var(--gold);
-  border-radius: 2px;
-  transition: transform .35s cubic-bezier(.16,.84,.44,1), opacity .2s ease, top .35s cubic-bezier(.16,.84,.44,1);
-  display: block;
+.burger__svg-line {
+  stroke: var(--gold);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  fill: none;
+  transition: transform .35s cubic-bezier(.16,.84,.44,1), opacity .2s ease;
+  transform-origin: 11px 11px;
 }
-.burger__line:nth-child(1) { top: 0; }
-.burger__line:nth-child(2) { top: 50%; transform: translateY(-50%); }
-.burger__line:nth-child(3) { top: calc(100% - 1.5px); }
-.burger[aria-expanded="true"] .burger__line:nth-child(1) {
-  top: 50%;
-  transform: translateY(-50%) rotate(45deg);
+/* Estado FECHADO: 3 linhas horizontais paralelas */
+.burger__svg-line:nth-child(1) { transform: translateY(-5px); }
+.burger__svg-line:nth-child(2) { transform: translateY(0); }
+.burger__svg-line:nth-child(3) { transform: translateY(5px); }
+/* Estado ABERTO: vira X (linhas 1 e 3 cruzam, linha 2 some) */
+.burger[aria-expanded="true"] .burger__svg-line:nth-child(1) {
+  transform: rotate(45deg);
 }
-.burger[aria-expanded="true"] .burger__line:nth-child(2) {
+.burger[aria-expanded="true"] .burger__svg-line:nth-child(2) {
   opacity: 0;
-  transform: translateY(-50%) scaleX(0);
 }
-.burger[aria-expanded="true"] .burger__line:nth-child(3) {
-  top: 50%;
-  transform: translateY(-50%) rotate(-45deg);
+.burger[aria-expanded="true"] .burger__svg-line:nth-child(3) {
+  transform: rotate(-45deg);
 }
 
 /* === HERO — editorial === */
@@ -873,7 +870,7 @@ em { font-style: italic; }
   background: var(--bg-card);
   border: 1px solid var(--line);
   border-radius: var(--r-md);
-  transition: all .35s ease;
+  transition: transform .35s ease, border-color .35s ease, background .35s ease, color .35s ease;
 }
 .connect-line:hover {
   border-color: var(--line-gold);
@@ -1012,7 +1009,7 @@ em { font-style: italic; }
   background: rgba(255,255,255,0.025);
   border: 1px solid var(--line);
   border-radius: 12px;
-  transition: all .3s ease;
+  transition: transform .3s ease, border-color .3s ease, background .3s ease, color .3s ease;
 }
 .pillar:hover {
   border-color: var(--line-gold);
@@ -1100,7 +1097,7 @@ em { font-style: italic; }
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: var(--r-md);
-  transition: all .4s cubic-bezier(.16,.84,.44,1);
+  transition: transform .4s cubic-bezier(.16,.84,.44,1), border-color .4s ease, background .4s ease, opacity .4s ease;
   position: relative;
   overflow: hidden;
 }
@@ -1174,7 +1171,7 @@ em { font-style: italic; }
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--r-md);
-  transition: all .4s ease;
+  transition: transform .4s ease, border-color .4s ease, background .4s ease;
 }
 .ingredient:hover {
   background: rgba(255, 255, 255, 0.07);
@@ -1255,7 +1252,7 @@ em { font-style: italic; }
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--r-lg);
-  transition: all .35s ease;
+  transition: transform .35s ease, border-color .35s ease, background .35s ease, color .35s ease;
   position: relative;
   z-index: 1;
 }
@@ -1355,7 +1352,7 @@ em { font-style: italic; }
   -webkit-backdrop-filter: blur(10px);
   border: 1.5px solid var(--line-strong);
   border-radius: var(--r-lg);
-  transition: all .4s cubic-bezier(.16,.84,.44,1);
+  transition: transform .4s cubic-bezier(.16,.84,.44,1), border-color .4s ease, background .4s ease, opacity .4s ease;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -1603,7 +1600,7 @@ em { font-style: italic; }
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--r-md);
-  transition: all .35s ease;
+  transition: transform .35s ease, border-color .35s ease, background .35s ease, color .35s ease;
 }
 .trust-card:hover {
   border-color: rgba(232, 199, 126, 0.25);
@@ -1881,7 +1878,7 @@ em { font-style: italic; }
   justify-content: center;
   z-index: 80;
   box-shadow: 0 8px 30px rgba(37, 211, 102, .4);
-  transition: all .3s ease;
+  transition: transform .3s ease, border-color .3s ease, background .3s ease, color .3s ease;
   animation: waPulse 2.5s ease-in-out infinite;
 }
 .wa-float svg { width: 30px; height: 30px; }
@@ -1964,7 +1961,7 @@ em { font-style: italic; }
   z-index: 79;
   opacity: 0;
   visibility: hidden;
-  transition: all .3s ease;
+  transition: transform .3s ease, border-color .3s ease, background .3s ease, color .3s ease;
 }
 .back-top.show { opacity: 1; visibility: visible; }
 .back-top:hover {
@@ -2165,6 +2162,27 @@ em { font-style: italic; }
   }
   .burger { display: block; }
 
+  /* === OTIMIZAÇÃO PERFORMANCE MOBILE ===
+     backdrop-filter é a causa nº1 de travamento em mobile.
+     Substituímos por background sólido com alpha equivalente — visualmente
+     quase idêntico mas SEM custo de GPU. */
+  .header,
+  .header.scrolled,
+  .nav,
+  .sticky-cta,
+  .cookie-banner,
+  .wa-float,
+  .back-top,
+  .btn--ghost {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  /* Compensa visualmente a perda do blur com background mais sólido */
+  .header { background: rgba(8, 3, 10, 0.95); }
+  .header.scrolled { background: rgba(8, 3, 10, 0.98); }
+  .sticky-cta { background: rgba(8, 3, 10, 0.97); }
+  .cookie-banner { background: rgba(8, 3, 10, 0.97); }
+
   /* No mobile, sticky CTA + menu cumpre o papel — esconde botão duplicado do header */
   .btn--header { display: none; }
   /* Quando menu mobile está aberto, travar scroll do body */
@@ -2342,10 +2360,16 @@ em { font-style: italic; }
     filter: blur(50px);
   }
 
-  /* REVEAL ON SCROLL: amplitude menor + transição cinemática */
+  /* REVEAL ON SCROLL mobile: rápido e sutil pra não competir com o scroll do usuário.
+     Quando reveal demora > 500ms, scroll rápido cria sensação de "elementos subindo
+     na direção errada". Solução: 350ms + apenas 8px de deslocamento. */
   .reveal {
-    transform: translateY(16px);
-    transition-duration: .85s;
+    transform: translate3d(0, 8px, 0);
+    transition-duration: .35s;
+    transition-timing-function: ease-out;
+  }
+  .reveal.is-visible {
+    transform: translate3d(0, 0, 0);
   }
 
   /* WA-FLOAT desktop fica escondido no mobile (sticky CTA cumpre o papel) */
@@ -2499,11 +2523,11 @@ em { font-style: italic; }
     </a>
 
     <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" type="button">
-      <span class="burger__icon" aria-hidden="true">
-        <span class="burger__line"></span>
-        <span class="burger__line"></span>
-        <span class="burger__line"></span>
-      </span>
+      <svg class="burger__svg" viewBox="0 0 22 22" aria-hidden="true">
+        <line class="burger__svg-line" x1="3" y1="11" x2="19" y2="11"/>
+        <line class="burger__svg-line" x1="3" y1="11" x2="19" y2="11"/>
+        <line class="burger__svg-line" x1="3" y1="11" x2="19" y2="11"/>
+      </svg>
     </button>
   </div>
 </header>
@@ -2559,7 +2583,7 @@ em { font-style: italic; }
     <div class="hero__visual reveal">
       <div class="hero__product">
         <div class="hero__product-glow" aria-hidden="true"></div>
-        <img src="quero-mais.png" alt="QUERO+ Velmora — Pó para preparo de bebida sabor frutas vermelhas, pote 210g" class="hero__bottle-img" width="500" height="500" fetchpriority="high">
+        <img src="quero-mais.png" alt="QUERO+ Velmora — Pó para preparo de bebida sabor frutas vermelhas, pote 210g" class="hero__bottle-img" width="500" height="500" fetchpriority="high" decoding="async">
 
         <div class="badge-floating" aria-hidden="true">
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -3405,7 +3429,7 @@ em { font-style: italic; }
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
           window.scrollTo(0, y);
         } else {
-          smoothScrollTo(y, 900);
+          smoothScrollTo(y, 500);
         }
       }
     });
