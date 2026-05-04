@@ -2199,39 +2199,47 @@ em { font-style: italic; }
   /* Quando sticky CTA está ativo, dar espaço pro conteúdo */
   body.has-sticky-cta { padding-bottom: 80px; }
 
-  /* No mobile mantemos animações sutis — só desligamos as muito caras (sparks, beam, parallax) */
-  .hero__sparks { animation: none !important; opacity: .35; }
-  .hero__glow--1, .hero__glow--2 { animation: none !important; }
-  .kit--featured::before { animation: none !important; opacity: .6; }
-
-  /* Animações sutis preservadas: pote, badge, glow, dot — versões mais lentas e leves para mobile */
+  /* === KILL SWITCH MOBILE: zero animação decorativa === */
+  /* Toda animação infinita decorativa é desligada no mobile para garantir
+     estabilidade visual total — o site fica parado, sem nada vibrando ou se mexendo */
+  .hero__bottle-img,
+  .hero__product-glow,
+  .hero__sparks,
+  .hero__glow,
+  .hero__glow--1,
+  .hero__glow--2,
+  .badge-floating,
+  .eyebrow__dot,
+  .kit--featured::before,
+  .wa-float,
+  .topbar__track,
+  .final-cta__glow,
+  .final-cta__glow--1,
+  .final-cta__glow--2 {
+    animation: none !important;
+  }
+  /* Topbar mobile: estática, sem movimento */
+  .topbar__track {
+    animation: none !important;
+    transform: none !important;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  /* Items do topbar mobile: mostra só os primeiros 2 (resto fica escondido pra não quebrar layout) */
+  .topbar__item:nth-child(n+3) { display: none; }
+  /* Pote: sombra estática elegante (não floating) */
   .hero__bottle-img {
-    animation: bottleFloatMobile 7s ease-in-out infinite;
     filter: drop-shadow(0 18px 30px rgba(225, 29, 44, .28));
   }
-  @keyframes bottleFloatMobile {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
-  .hero__product-glow {
-    animation: bottleGlowMobile 6s ease-in-out infinite;
-  }
-  @keyframes bottleGlowMobile {
-    0%, 100% { opacity: .55; }
-    50% { opacity: .85; }
-  }
-  .badge-floating {
-    animation: badgeFloatMobile 8s ease-in-out infinite;
-  }
-  @keyframes badgeFloatMobile {
-    0%, 100% { transform: rotate(-12deg) translateY(0); }
-    50% { transform: rotate(-9deg) translateY(-3px); }
-  }
-  .eyebrow__dot {
-    animation-duration: 3.5s;
-  }
-  /* Topbar mais lenta no mobile - texto mais legível, menos distração */
-  .topbar__track { animation-duration: 90s; }
+  .hero__product-glow { opacity: .65; }
+  .hero__sparks { opacity: .25; }
+  /* Badge fixo na posição original */
+  .badge-floating { transform: rotate(-12deg); }
+  /* Dot do eyebrow estático */
+  .eyebrow__dot { opacity: 1; }
+  /* Border beam do kit em destaque sem animação */
+  .kit--featured::before { opacity: .5; }
 }
 
 @media (max-width: 480px) {
@@ -3322,8 +3330,9 @@ em { font-style: italic; }
   // === GLOW FOLLOWER (cursor red glow) — desktop only, respeitando reduce-motion ===
   var prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  var isMobileViewport = window.innerWidth <= 1024;
 
-  if (!prefersReduce && !isTouchDevice && window.innerWidth > 1024) {
+  if (!prefersReduce && !isTouchDevice && !isMobileViewport) {
     var glow = document.createElement('div');
     glow.className = 'cursor-glow';
     glow.setAttribute('aria-hidden', 'true');
@@ -3347,8 +3356,9 @@ em { font-style: italic; }
     animateGlow();
   }
 
-  // === PARALLAX SUTIL nos glows do hero ===
-  if (!prefersReduce) {
+  // === PARALLAX SUTIL nos glows do hero — DESKTOP ONLY ===
+  // No mobile o parallax causava percepção de "movimento" durante o scroll, então fica desligado.
+  if (!prefersReduce && !isMobileViewport) {
     var heroGlows = document.querySelectorAll('.hero__glow, .final-cta__glow');
     if (heroGlows.length && 'requestAnimationFrame' in window) {
       var ticking = false;
