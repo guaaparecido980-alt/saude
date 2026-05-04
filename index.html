@@ -1550,6 +1550,21 @@ em { font-style: italic; }
   transform: translateY(-2px);
 }
 
+/* Variante dourada — pro Kit Constância (3º kit), evita visual perdido */
+.kit__cta--gold {
+  background: linear-gradient(135deg, rgba(232, 199, 126, .15), rgba(232, 199, 126, .05));
+  border-color: var(--gold);
+  color: var(--gold);
+  font-weight: 600;
+}
+.kit__cta--gold:hover {
+  background: linear-gradient(135deg, var(--gold), #c9a96b);
+  border-color: var(--gold);
+  color: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -6px rgba(232, 199, 126, .3);
+}
+
 .offer__guarantee {
   display: flex;
   align-items: center;
@@ -2150,8 +2165,16 @@ em { font-style: italic; }
   }
   .burger { display: block; }
 
+  /* No mobile, sticky CTA + menu cumpre o papel — esconde botão duplicado do header */
+  .btn--header { display: none; }
   /* Quando menu mobile está aberto, travar scroll do body */
   body.nav-open { overflow: hidden; }
+
+  /* Header em mobile: logo um pouco menor pra dar espaço ao burger sem apertar */
+  .header__inner { gap: 12px; }
+  .logo__mark { width: 46px; height: 46px; }
+  .logo__name { font-size: 19px; letter-spacing: 2.2px; }
+  .logo__tag { font-size: 8.5px; }
 
   .topbar { font-size: 11px; letter-spacing: 1.2px; }
 
@@ -2338,8 +2361,6 @@ em { font-style: italic; }
   .logo__name { font-size: 17px; letter-spacing: 2px; }
   .logo__tag { font-size: 8px; }
   .logo__mark { width: 42px; height: 42px; }
-  /* No mobile pequeno escondemos o botão "Falar agora" do header — temos sticky CTA persistente e WhatsApp via menu */
-  .btn--header { display: none; }
   .seal { font-size: 10.5px; }
   .seal svg { width: 18px; height: 18px; }
   .badge-floating { width: 76px; height: 76px; top: 6px; right: 6px; }
@@ -2878,7 +2899,7 @@ em { font-style: italic; }
           <li>Garantia de satisfação 30 dias</li>
           <li>Atendimento prioritário</li>
         </ul>
-        <a href="https://wa.me/5541999870033?text=Ol%C3%A1!%20Quero%20o%20Kit%20Const%C3%A2ncia%20com%203%20unidades%20do%20QUERO%2B%20(R%24%20529%2C00%20com%20frete%20gr%C3%A1tis).%20Pode%20me%20ajudar%3F" class="btn kit__cta" data-track="oferta_kit_premium" target="_blank" rel="noopener">
+        <a href="https://wa.me/5541999870033?text=Ol%C3%A1!%20Quero%20o%20Kit%20Const%C3%A2ncia%20com%203%20unidades%20do%20QUERO%2B%20(R%24%20529%2C00%20com%20frete%20gr%C3%A1tis).%20Pode%20me%20ajudar%3F" class="btn kit__cta kit__cta--gold" data-track="oferta_kit_premium" target="_blank" rel="noopener">
           Quero escolher minha opção
         </a>
       </article>
@@ -3144,7 +3165,7 @@ em { font-style: italic; }
 
     <div class="footer__legal">
       <p><strong>Aviso legal:</strong> Os produtos da linha Velmora são suplementos alimentares e produtos de cuidado pessoal. Não previnem, diagnosticam, tratam ou curam doenças. Não substituem orientação médica, alimentação variada e equilibrada nem hábitos saudáveis. Resultados podem variar de pessoa para pessoa. Não recomendados para gestantes, lactantes, menores de 19 anos e pessoas com condições clínicas sem acompanhamento profissional. Suplementos alimentares conforme RDC 243/2018 da ANVISA.</p>
-      <p>© <span id="year">2026</span> Velmora · Saúde, Energia &amp; Desejo · CNPJ [Inserir CNPJ ou nome do responsável] · Curitiba/PR · Todos os direitos reservados.</p>
+      <p>© <span id="year">2026</span> Velmora · Saúde, Energia &amp; Desejo · Curitiba/PR · Todos os direitos reservados.</p>
     </div>
   </div>
 </footer>
@@ -3399,7 +3420,7 @@ em { font-style: italic; }
           io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(function(el) { io.observe(el); });
   } else {
     document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('is-visible'); });
