@@ -32,13 +32,21 @@
   <meta name="facebook-domain-verification" content="COLOQUE_O_CODIGO_AQUI">
   <meta name="google-site-verification" content="COLOQUE_O_CODIGO_AQUI">
 
-  <!-- Favicon completo (todos os dispositivos) -->
+  <!-- Favicon: WebP pra browsers modernos (mais leve), PNG fallback pra compatibilidade total.
+       O browser usa o PRIMEIRO formato que entende — WebP (Chrome/Edge/Firefox) ou PNG (todos).
+       apple-touch-icon e ICO ficam em PNG/ICO porque iOS e bookmarks antigos exigem. -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/webp" sizes="16x16" href="favicon-16x16.webp">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/webp" sizes="32x32" href="favicon-32x32.webp">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/webp" sizes="48x48" href="favicon-48x48.webp">
   <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
+  <link rel="icon" type="image/webp" sizes="96x96" href="favicon-96x96.webp">
   <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="icon" type="image/webp" sizes="192x192" href="favicon-192x192.webp">
   <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+  <link rel="icon" type="image/webp" sizes="512x512" href="favicon-512x512.webp">
   <link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
@@ -47,6 +55,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700;800&display=swap">
+
+  <!-- Preload do pote (LCP da hero) — WebP pra navegadores modernos, evita atraso de paint -->
+  <link rel="preload" as="image" href="quero-mais.webp" type="image/webp" fetchpriority="high">
 
   <!-- Schema.org -->
   <script type="application/ld+json">
@@ -489,6 +500,11 @@ em { font-style: italic; }
   filter: drop-shadow(0 4px 12px rgba(232, 199, 126, 0.28))
           drop-shadow(0 0 16px rgba(225, 29, 44, 0.18));
 }
+.logo__mark picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 .logo__mark img {
   width: 100%;
   height: 100%;
@@ -752,6 +768,9 @@ em { font-style: italic; }
   0%, 100% { opacity: .7; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.08); }
 }
+.hero__product picture {
+  display: block;
+}
 .hero__bottle-img {
   position: relative;
   z-index: 1;
@@ -964,6 +983,9 @@ em { font-style: italic; }
 }
 .spotlight__bottle:hover {
   transform: translateY(-6px) scale(1.01);
+}
+.spotlight__bottle picture {
+  display: block;
 }
 .spotlight__bottle img {
   width: 100%;
@@ -2501,7 +2523,10 @@ em { font-style: italic; }
   <div class="container header__inner">
     <a href="#" class="logo" aria-label="Velmora · Saúde, Energia & Desejo">
       <span class="logo__mark" aria-hidden="true">
-        <img src="logo-velmora.png" alt="Logo Velmora" width="120" height="120" loading="eager" decoding="async">
+        <picture>
+          <source srcset="logo-velmora.webp" type="image/webp">
+          <img src="logo-velmora.png" alt="Logo Velmora" width="120" height="120" loading="eager" decoding="async">
+        </picture>
       </span>
       <span class="logo__text">
         <span class="logo__name">VELMORA</span>
@@ -2590,7 +2615,10 @@ em { font-style: italic; }
     <div class="hero__visual reveal">
       <div class="hero__product">
         <div class="hero__product-glow" aria-hidden="true"></div>
-        <img src="quero-mais.png" alt="QUERO+ Velmora — Pó para preparo de bebida sabor frutas vermelhas, pote 210g" class="hero__bottle-img" width="500" height="500" fetchpriority="high" decoding="async">
+        <picture>
+          <source srcset="quero-mais.webp" type="image/webp">
+          <img src="quero-mais.png" alt="QUERO+ Velmora — Pó para preparo de bebida sabor frutas vermelhas, pote 210g" class="hero__bottle-img" width="500" height="500" fetchpriority="high" decoding="async">
+        </picture>
 
         <div class="badge-floating" aria-hidden="true">
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -2648,7 +2676,13 @@ em { font-style: italic; }
     <div class="spotlight__grid">
       <div class="spotlight__visual reveal">
         <div class="spotlight__bottle">
-          <img src="quero-mais-lifestyle.jpg" srcset="quero-mais-lifestyle.jpg 800w, quero-mais-lifestyle@2x.jpg 1200w" sizes="(max-width: 768px) 90vw, 440px" alt="QUERO+ Velmora — Sabor que encanta, resultados que motivam. Pote 210g com frutas vermelhas naturais" width="800" height="800" loading="lazy">
+          <picture>
+            <source
+              srcset="quero-mais-lifestyle.webp 800w, quero-mais-lifestyle@2x.webp 1200w"
+              sizes="(max-width: 768px) 90vw, 440px"
+              type="image/webp">
+            <img src="quero-mais-lifestyle.jpg" srcset="quero-mais-lifestyle.jpg 800w, quero-mais-lifestyle@2x.jpg 1200w" sizes="(max-width: 768px) 90vw, 440px" alt="QUERO+ Velmora — Sabor que encanta, resultados que motivam. Pote 210g com frutas vermelhas naturais" width="800" height="800" loading="lazy">
+          </picture>
         </div>
       </div>
 
@@ -3154,7 +3188,10 @@ em { font-style: italic; }
       <div class="footer__col footer__col--brand">
         <a href="#" class="logo logo--footer" aria-label="Velmora">
           <span class="logo__mark" aria-hidden="true">
-            <img src="logo-velmora.png" alt="Logo Velmora" width="140" height="140" loading="lazy" decoding="async">
+            <picture>
+              <source srcset="logo-velmora.webp" type="image/webp">
+              <img src="logo-velmora.png" alt="Logo Velmora" width="140" height="140" loading="lazy" decoding="async">
+            </picture>
           </span>
           <span class="logo__text">
             <span class="logo__name">VELMORA</span>
