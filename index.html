@@ -2140,12 +2140,20 @@ em { font-style: italic; }
   }
   .seal { font-size: 10.5px; gap: 8px; }
   .seal svg { width: 18px; height: 18px; }
-  .hero__visual { order: -1; max-width: 320px; margin: 0 auto; }
+  .hero__visual { order: -1; max-width: 280px; margin: 0 auto; }
+  .hero__product { max-width: 280px; }
   .badge-floating {
-    width: 80px;
-    height: 80px;
-    top: 8px;
-    right: 8px;
+    width: 76px;
+    height: 76px;
+    top: 6px;
+    right: 6px;
+  }
+  .badge-floating__text span { font-size: 7px; letter-spacing: 1.8px; }
+  .badge-floating__text strong { font-size: 11px; }
+  .hero__product-meta {
+    font-size: 10px;
+    padding: 7px 14px;
+    bottom: 10px;
   }
 
   .connect-line { padding: 18px 22px; gap: 16px; }
@@ -2191,17 +2199,39 @@ em { font-style: italic; }
   /* Quando sticky CTA está ativo, dar espaço pro conteúdo */
   body.has-sticky-cta { padding-bottom: 80px; }
 
-  /* Desligar animações decorativas infinitas no mobile — economia de bateria, evita tremedeira e melhora estabilidade visual */
-  .hero__bottle-img { animation: none !important; }
-  .hero__product-glow { animation: none !important; opacity: .8; }
-  .badge-floating { animation: none !important; transform: rotate(-12deg); }
+  /* No mobile mantemos animações sutis — só desligamos as muito caras (sparks, beam, parallax) */
   .hero__sparks { animation: none !important; opacity: .35; }
   .hero__glow--1, .hero__glow--2 { animation: none !important; }
-  .eyebrow__dot { animation: none !important; }
-  .topbar__track { animation-duration: 60s; }
-
-  /* Border beam do kit destaque: simplificar (a animação `mask-composite` é cara em GPU mobile) */
   .kit--featured::before { animation: none !important; opacity: .6; }
+
+  /* Animações sutis preservadas: pote, badge, glow, dot — versões mais lentas e leves para mobile */
+  .hero__bottle-img {
+    animation: bottleFloatMobile 7s ease-in-out infinite;
+    filter: drop-shadow(0 18px 30px rgba(225, 29, 44, .28));
+  }
+  @keyframes bottleFloatMobile {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .hero__product-glow {
+    animation: bottleGlowMobile 6s ease-in-out infinite;
+  }
+  @keyframes bottleGlowMobile {
+    0%, 100% { opacity: .55; }
+    50% { opacity: .85; }
+  }
+  .badge-floating {
+    animation: badgeFloatMobile 8s ease-in-out infinite;
+  }
+  @keyframes badgeFloatMobile {
+    0%, 100% { transform: rotate(-12deg) translateY(0); }
+    50% { transform: rotate(-9deg) translateY(-3px); }
+  }
+  .eyebrow__dot {
+    animation-duration: 3.5s;
+  }
+  /* Topbar mais lenta no mobile - texto mais legível, menos distração */
+  .topbar__track { animation-duration: 90s; }
 }
 
 @media (max-width: 480px) {
