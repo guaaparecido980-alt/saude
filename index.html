@@ -125,8 +125,6 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-  /* Previne bounce do iOS Safari de afetar elementos position:fixed (causa do "pulo infinito") */
-  overscroll-behavior-y: none;
 }
 body {
   font-family: 'Manrope', system-ui, -apple-system, sans-serif;
@@ -138,8 +136,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'kern' 1, 'liga' 1;
-  /* Mesma proteção a nível de body */
-  overscroll-behavior-y: none;
 }
 
 /* Tipografia editorial — respiro nos parágrafos */
@@ -2167,7 +2163,7 @@ em { font-style: italic; }
     mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
   }
   .topbar__track {
-    animation: topbarScroll 200s linear infinite !important;
+    animation: topbarScroll 60s linear infinite !important;
     gap: 32px;
   }
 
@@ -2185,15 +2181,21 @@ em { font-style: italic; }
     animation: sparksFloat 200s linear infinite;
   }
 
-  /* PRODUTO HERO: respiração quase imperceptível, só pra dar vida sem chamar atenção */
+  /* PRODUTO HERO: respiração quase imperceptível.
+     CORREÇÃO DE BUG: animation-delay 1.5s pra começar SÓ depois do reveal do pai terminar
+     (.hero__visual tem .reveal que faz translateY 0 → none em 0.85s).
+     Sem isso, os transforms compostos faziam o pote "saltar e acelerar". */
   .hero__bottle-img {
-    animation: bottleFloatMobile 18s ease-in-out infinite;
+    animation: bottleFloatMobile 22s ease-in-out infinite;
+    animation-delay: 1.5s;
     will-change: transform;
     filter: drop-shadow(0 18px 28px rgba(225, 29, 44, .3));
+    /* Garante que começa do zero sem salto */
+    transform: translate3d(0, 0, 0);
   }
   @keyframes bottleFloatMobile {
     0%, 100% { transform: translate3d(0, 0, 0); }
-    50% { transform: translate3d(0, -3px, 0); }
+    50% { transform: translate3d(0, -2px, 0); }
   }
 
   /* GLOW DO PRODUTO: pulse extremamente sutil */
@@ -2206,19 +2208,15 @@ em { font-style: italic; }
     50% { opacity: .75; }
   }
 
-  /* BADGE FLUTUANTE MOBILE: container ESTÁTICO (texto fixo e legível), só o SVG circular gira muito devagar */
+  /* BADGE FLUTUANTE MOBILE: 100% ESTÁTICO — sem rotação nenhuma.
+     Texto legível, círculo fixo, sem distrações. */
   .badge-floating {
     animation: none;
     filter: drop-shadow(0 6px 14px rgba(225,29,44,.4));
-    transform: rotate(-12deg); /* inclinação fixa */
+    transform: rotate(-12deg);
   }
   .badge-floating > svg {
-    animation: badgeRotateMobile 120s linear infinite;
-    will-change: transform;
-  }
-  @keyframes badgeRotateMobile {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    animation: none;
   }
 
   /* DOT DO EYEBROW: pulse muito lento, quase respiração */
@@ -2281,13 +2279,14 @@ em { font-style: italic; }
   }
 
   /* === Telas muito pequenas (iPhone SE, etc): slow motion EXTREMO === */
+  /* Float ainda mais sutil no SE (-2px é praticamente respiração) */
   @keyframes bottleFloatMobile {
     0%, 100% { transform: translate3d(0, 0, 0); }
-    50% { transform: translate3d(0, -3px, 0); }
+    50% { transform: translate3d(0, -2px, 0); }
   }
   /* Topbar marquee SLOW MOTION máximo no SE: shorthand explícito pra evitar override */
-  .topbar__track { animation: topbarScroll 240s linear infinite !important; }
-  .hero__sparks { opacity: .25; animation: sparksFloat 240s linear infinite !important; }
+  .topbar__track { animation: topbarScroll 75s linear infinite !important; }
+  .hero__sparks { opacity: .25; animation: sparksFloat 200s linear infinite !important; }
 }
 
 /* === Conexões lentas (Save-Data) e displays low-end: desliga animações decorativas === */
