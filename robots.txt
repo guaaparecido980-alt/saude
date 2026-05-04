@@ -1,0 +1,27 @@
+# robots.txt - Velmora
+# https://velmora.com.br
+
+User-agent: *
+Allow: /
+
+# Bloquear bots de IA (opcional - remova se quiser permitir scraping para IA)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+# Sitemap
+Sitemap: https://velmora.com.br/sitemap.xml
