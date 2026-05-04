@@ -738,12 +738,20 @@ em { font-style: italic; }
   top: 0; right: 0;
   width: 110px; height: 110px;
   z-index: 2;
-  animation: badgeRotate 14s linear infinite;
   filter: drop-shadow(0 8px 20px rgba(225,29,44,.5));
+  /* Rotação leve estática (só -12deg como inclinação visual) — sem animação infinita */
+  transform: rotate(-12deg);
+}
+/* O CÍRCULO SVG gira, o TEXTO fica parado e legível */
+.badge-floating > svg {
+  width: 100%;
+  height: 100%;
+  animation: badgeRotate 14s linear infinite;
+  transform-origin: center;
 }
 @keyframes badgeRotate {
-  0% { transform: rotate(-12deg); }
-  100% { transform: rotate(348deg); }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 .badge-floating__text {
   position: absolute;
@@ -2176,7 +2184,7 @@ em { font-style: italic; }
     animation-duration: 180s; /* desktop: 32s */
   }
 
-  /* PRODUTO HERO: respiração lenta, tipo meditação */
+  /* PRODUTO HERO: respiração quase imperceptível, só pra dar vida sem chamar atenção */
   .hero__bottle-img {
     animation: bottleFloatMobile 18s ease-in-out infinite;
     will-change: transform;
@@ -2184,7 +2192,7 @@ em { font-style: italic; }
   }
   @keyframes bottleFloatMobile {
     0%, 100% { transform: translate3d(0, 0, 0); }
-    50% { transform: translate3d(0, -5px, 0); }
+    50% { transform: translate3d(0, -3px, 0); }
   }
 
   /* GLOW DO PRODUTO: pulse extremamente sutil */
@@ -2197,15 +2205,19 @@ em { font-style: italic; }
     50% { opacity: .75; }
   }
 
-  /* BADGE FLUTUANTE: rotação extremamente lenta (2 minutos por volta completa) */
+  /* BADGE FLUTUANTE MOBILE: container ESTÁTICO (texto fixo e legível), só o SVG circular gira muito devagar */
   .badge-floating {
-    animation: badgeRotateMobile 120s linear infinite;
+    animation: none;
     filter: drop-shadow(0 6px 14px rgba(225,29,44,.4));
+    transform: rotate(-12deg); /* inclinação fixa */
+  }
+  .badge-floating > svg {
+    animation: badgeRotateMobile 120s linear infinite;
     will-change: transform;
   }
   @keyframes badgeRotateMobile {
-    0% { transform: rotate(-12deg); }
-    100% { transform: rotate(348deg); }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
 
   /* DOT DO EYEBROW: pulse muito lento, quase respiração */
