@@ -1,0 +1,27 @@
+# robots.txt — Velmo Black Drink
+# https://velmoblackdrink.com.br/
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+
+# Bots de IA — bloqueados por padrão (descomentar se quiser permitir)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+# Sitemap
+Sitemap: https://velmoblackdrink.com.br/sitemap.xml
