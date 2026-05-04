@@ -2153,8 +2153,7 @@ em { font-style: italic; }
      A regra: se você "percebe" a animação acontecendo em <2 segundos, ela é rápida demais.
      Aqui tudo se move tão devagar que vira respiração visual. */
 
-  /* TOPBAR: marquee SLOW MOTION extremo, leitura completamente confortável.
-     Usamos shorthand completo pra GARANTIR override total da regra desktop. */
+  /* TOPBAR: marquee em velocidade confortável de leitura */
   .topbar {
     padding: 7px 0;
     font-size: 11px;
@@ -2163,11 +2162,11 @@ em { font-style: italic; }
     mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
   }
   .topbar__track {
-    animation: topbarScroll 60s linear infinite !important;
+    animation: topbarScroll 35s linear infinite !important;
     gap: 32px;
   }
 
-  /* HERO BG: glows estáticos (zero animação, só presença visual) */
+  /* HERO BG: glows grandes ESTÁTICOS no mobile */
   .hero__glow,
   .hero__glow--1,
   .hero__glow--2 {
@@ -2176,40 +2175,39 @@ em { font-style: italic; }
     opacity: .22;
   }
   .hero__sparks {
-    /* sparks quase imperceptíveis se movendo */
     opacity: .35;
-    animation: sparksFloat 200s linear infinite;
+    animation: sparksFloat 80s linear infinite;
   }
 
-  /* PRODUTO HERO: respiração quase imperceptível.
-     CORREÇÃO DE BUG: animation-delay 1.5s pra começar SÓ depois do reveal do pai terminar
-     (.hero__visual tem .reveal que faz translateY 0 → none em 0.85s).
-     Sem isso, os transforms compostos faziam o pote "saltar e acelerar". */
+  /* === POTE: SOLUÇÃO DEFINITIVA ===
+     Animamos o WRAPPER (.hero__product), NÃO a imagem.
+     A imagem fica imóvel, sem will-change, sem animation-delay, sem conflito.
+     O wrapper não tem .reveal nem nada que possa conflitar.
+     Resultado: ZERO chance de bug, animação 100% previsível. */
+  .hero__product {
+    animation: bottleFloatMobile 6s ease-in-out infinite;
+  }
   .hero__bottle-img {
-    animation: bottleFloatMobile 22s ease-in-out infinite;
-    animation-delay: 1.5s;
-    will-change: transform;
+    /* Imagem NÃO anima — fica parada dentro do wrapper que respira */
+    animation: none;
     filter: drop-shadow(0 18px 28px rgba(225, 29, 44, .3));
-    /* Garante que começa do zero sem salto */
-    transform: translate3d(0, 0, 0);
+    /* Remove will-change pra evitar criação de camada de composição extra */
+    will-change: auto;
   }
   @keyframes bottleFloatMobile {
     0%, 100% { transform: translate3d(0, 0, 0); }
-    50% { transform: translate3d(0, -2px, 0); }
+    50% { transform: translate3d(0, -4px, 0); }
   }
 
-  /* GLOW DO PRODUTO: pulse extremamente sutil */
+  /* GLOW DO PRODUTO: 100% ESTÁTICO no mobile.
+     Era o que causava a "luz girando" no Safari (blur + opacity animada). */
   .hero__product-glow {
-    animation: bottleGlowMobile 16s ease-in-out infinite;
+    animation: none;
     filter: blur(28px);
-  }
-  @keyframes bottleGlowMobile {
-    0%, 100% { opacity: .55; }
-    50% { opacity: .75; }
+    opacity: .55;
   }
 
-  /* BADGE FLUTUANTE MOBILE: 100% ESTÁTICO — sem rotação nenhuma.
-     Texto legível, círculo fixo, sem distrações. */
+  /* BADGE FLUTUANTE MOBILE: 100% ESTÁTICO */
   .badge-floating {
     animation: none;
     filter: drop-shadow(0 6px 14px rgba(225,29,44,.4));
@@ -2219,18 +2217,18 @@ em { font-style: italic; }
     animation: none;
   }
 
-  /* DOT DO EYEBROW: pulse muito lento, quase respiração */
+  /* DOT DO EYEBROW: pulse muito sutil */
   .eyebrow__dot {
-    animation: dotPulseMobile 8s ease-in-out infinite;
+    animation: dotPulseMobile 4s ease-in-out infinite;
   }
   @keyframes dotPulseMobile {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: .65; transform: scale(1.15); }
   }
 
-  /* KIT DESTACADO: border beam slow motion */
+  /* KIT DESTACADO: border beam em ritmo lento */
   .kit--featured::before {
-    animation: beamRotate 24s linear infinite;
+    animation: beamRotate 12s linear infinite;
     opacity: .8;
   }
 
@@ -2245,7 +2243,7 @@ em { font-style: italic; }
   /* REVEAL ON SCROLL: amplitude menor + transição cinemática */
   .reveal {
     transform: translateY(16px);
-    transition-duration: 1.1s;
+    transition-duration: .85s;
   }
 
   /* WA-FLOAT desktop fica escondido no mobile (sticky CTA cumpre o papel) */
@@ -2278,15 +2276,15 @@ em { font-style: italic; }
     height: calc(100dvh - 64px);
   }
 
-  /* === Telas muito pequenas (iPhone SE, etc): slow motion EXTREMO === */
-  /* Float ainda mais sutil no SE (-2px é praticamente respiração) */
+  /* === Telas muito pequenas (iPhone SE, etc) === */
+  /* Float ainda mais sutil no SE */
   @keyframes bottleFloatMobile {
     0%, 100% { transform: translate3d(0, 0, 0); }
-    50% { transform: translate3d(0, -2px, 0); }
+    50% { transform: translate3d(0, -3px, 0); }
   }
-  /* Topbar marquee SLOW MOTION máximo no SE: shorthand explícito pra evitar override */
-  .topbar__track { animation: topbarScroll 75s linear infinite !important; }
-  .hero__sparks { opacity: .25; animation: sparksFloat 200s linear infinite !important; }
+  /* Topbar marquee em velocidade ligeiramente mais lenta no SE pra leitura */
+  .topbar__track { animation: topbarScroll 45s linear infinite !important; }
+  .hero__sparks { opacity: .25; animation: sparksFloat 90s linear infinite !important; }
 }
 
 /* === Conexões lentas (Save-Data) e displays low-end: desliga animações decorativas === */
@@ -2296,6 +2294,7 @@ em { font-style: italic; }
   .hero__glow--1,
   .hero__glow--2,
   .hero__sparks,
+  .hero__product,
   .hero__product-glow,
   .badge-floating,
   .kit--featured::before,
@@ -2313,6 +2312,7 @@ em { font-style: italic; }
 .low-power .hero__glow--1,
 .low-power .hero__glow--2,
 .low-power .hero__sparks,
+.low-power .hero__product,
 .low-power .hero__product-glow,
 .low-power .hero__bottle-img,
 .low-power .badge-floating,
