@@ -1984,9 +1984,8 @@ em { font-style: italic; }
     --section-py: clamp(60px, 12vw, 90px);
   }
 
-  .nav { display: none; }
-  .nav.open {
-    display: flex;
+  .nav {
+    display: flex; /* sempre flex (não none) — controlamos visibilidade com opacity/transform */
     flex-direction: column;
     position: fixed;
     top: 70px;
@@ -2002,14 +2001,39 @@ em { font-style: italic; }
     z-index: 89;
     overflow-y: auto;
     box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    /* Estado fechado: invisível, deslocado e sem interação */
+    opacity: 0;
+    transform: translateY(-12px);
+    pointer-events: none;
+    transition: opacity .35s ease, transform .35s cubic-bezier(.16,.84,.44,1);
+    will-change: opacity, transform;
   }
-  .nav.open a {
+  .nav.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  /* Links com micro-stagger ao abrir (fade-in escalonado, premium feel) */
+  .nav a {
     padding: 18px 0;
     font-size: 17px;
     border-bottom: 1px solid var(--line);
     color: var(--text);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .4s ease, transform .4s cubic-bezier(.16,.84,.44,1), color .25s ease;
   }
-  .nav.open a:last-child { border-bottom: none; }
+  .nav.open a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .nav.open a:nth-child(1) { transition-delay: .08s; }
+  .nav.open a:nth-child(2) { transition-delay: .14s; }
+  .nav.open a:nth-child(3) { transition-delay: .20s; }
+  .nav.open a:nth-child(4) { transition-delay: .26s; }
+  .nav.open a:nth-child(5) { transition-delay: .32s; }
+  .nav.open a:nth-child(6) { transition-delay: .38s; }
+  .nav a:last-child { border-bottom: none; }
 
   /* CTA WhatsApp dentro do menu mobile */
   .nav.open .nav__cta {
@@ -2102,66 +2126,114 @@ em { font-style: italic; }
   .cookie-banner__inner { flex-direction: column; align-items: stretch; }
   .cookie-banner__btns .btn { flex: 1; }
 
-  /* No mobile, o sticky CTA já cumpre o papel — escondemos os flutuantes para evitar empilhamento e sobreposição em textos */
-  .wa-float { display: none !important; }
-  .back-top { display: none !important; }
+  /* === ANIMAÇÕES MOBILE: REENGENHARIA ADAPTATIVA ===
+     Em vez de matar tudo, recriamos cada efeito com:
+     - Amplitudes menores (não tremem)
+     - Durações maiores (mais sutis)
+     - GPU-only (transform + opacity, evitando blur animado pesado)
+     - will-change apenas em elementos críticos
+     - Combinações de animação infinita reduzidas */
 
-  .sticky-cta { display: block; }
-
-  /* Quando sticky CTA está ativo, dar espaço pro conteúdo */
-  body.has-sticky-cta { padding-bottom: 80px; }
-
-  /* === KILL SWITCH MOBILE: zero animação decorativa === */
-  /* Toda animação infinita decorativa é desligada no mobile para garantir
-     estabilidade visual total — o site fica parado, sem nada vibrando ou se mexendo */
-  .hero__bottle-img,
-  .hero__product-glow,
-  .hero__sparks,
-  .hero__glow,
-  .hero__glow--1,
-  .hero__glow--2,
-  .badge-floating,
-  .eyebrow__dot,
-  .kit--featured::before,
-  .wa-float,
-  .topbar__track,
-  .final-cta__glow,
-  .final-cta__glow--1,
-  .final-cta__glow--2 {
-    animation: none !important;
-  }
-  /* Topbar mobile: estática, 1 item só, sem quebra */
+  /* TOPBAR: marquee continua, mas mais lento e com gap reduzido pra mobile */
   .topbar {
     padding: 7px 0;
     font-size: 11px;
     letter-spacing: 1px;
+    /* Fade nas pontas pra entrada/saída de texto ficar elegante (premium touch) */
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
   }
   .topbar__track {
-    animation: none !important;
-    transform: none !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    gap: 0;
-    white-space: nowrap;
-    overflow: hidden;
+    animation-duration: 60s; /* desktop é 40s — mais lento no mobile pra leitura */
+    gap: 32px; /* desktop: 50px — mais apertado */
   }
-  /* Mostra só o primeiro item (Garantia de satisfação) — o resto escondido */
-  .topbar__item { flex-shrink: 0; }
-  .topbar__item:not(:first-child) { display: none; }
-  /* Pote: sombra estática elegante (não floating) */
+
+  /* HERO BG: glows grandes ficam ESTÁTICOS no mobile (blur 120px + animação = GPU hell) */
+  .hero__glow,
+  .hero__glow--1,
+  .hero__glow--2 {
+    animation: none;
+    /* mas reduzimos blur pra ficar mais leve e mantemos a presença visual */
+    filter: blur(60px);
+    opacity: .22;
+  }
+  .hero__sparks {
+    /* sparks continuam, são leves (só background-position) */
+    opacity: .35;
+    animation-duration: 50s; /* mais devagar */
+  }
+
+  /* PRODUTO HERO: float reduzido e suavizado pra não tremer */
   .hero__bottle-img {
-    filter: drop-shadow(0 18px 30px rgba(225, 29, 44, .28));
+    animation: bottleFloatMobile 7s ease-in-out infinite;
+    will-change: transform;
+    /* drop-shadow estática, não animada */
+    filter: drop-shadow(0 18px 28px rgba(225, 29, 44, .3));
   }
-  .hero__product-glow { opacity: .65; }
-  .hero__sparks { opacity: .25; }
-  /* Badge fixo na posição original */
-  .badge-floating { transform: rotate(-12deg); }
-  /* Dot do eyebrow estático */
-  .eyebrow__dot { opacity: 1; }
-  /* Border beam do kit em destaque sem animação */
-  .kit--featured::before { opacity: .5; }
+  @keyframes bottleFloatMobile {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(0, -6px, 0); } /* desktop: -14px → mobile: -6px */
+  }
+
+  /* GLOW DO PRODUTO: opacity pulse só, sem scale (scale + blur = jank no mobile) */
+  .hero__product-glow {
+    animation: bottleGlowMobile 6s ease-in-out infinite;
+    /* blur menor */
+    filter: blur(28px);
+  }
+  @keyframes bottleGlowMobile {
+    0%, 100% { opacity: .55; }
+    50% { opacity: .8; }
+  }
+
+  /* BADGE FLUTUANTE: rotação MUITO mais lenta + sem drop-shadow animada */
+  .badge-floating {
+    animation: badgeRotateMobile 40s linear infinite;
+    filter: drop-shadow(0 6px 14px rgba(225,29,44,.4));
+    will-change: transform;
+  }
+  @keyframes badgeRotateMobile {
+    0% { transform: rotate(-12deg); }
+    100% { transform: rotate(348deg); }
+  }
+
+  /* DOT DO EYEBROW: pulse continua, mas mais sutil */
+  .eyebrow__dot {
+    animation: dotPulseMobile 3s ease-in-out infinite;
+  }
+  @keyframes dotPulseMobile {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .6; transform: scale(1.2); }
+  }
+
+  /* KIT DESTACADO: border beam continua, MAS com duração maior pra não chamar atenção demais */
+  .kit--featured::before {
+    animation-duration: 8s; /* desktop: 4s */
+    opacity: .8;
+  }
+
+  /* FINAL CTA glows: estáticos no mobile (mesmo motivo dos hero glows — blur grande) */
+  .final-cta__glow,
+  .final-cta__glow--1,
+  .final-cta__glow--2 {
+    animation: none;
+    filter: blur(50px);
+  }
+
+  /* REVEAL ON SCROLL: amplitude menor + transição mais curta no mobile */
+  .reveal {
+    transform: translateY(18px); /* desktop: 28px */
+    transition-duration: .7s;    /* desktop: .9s */
+  }
+
+  /* WA-FLOAT desktop fica escondido no mobile (sticky CTA cumpre o papel) */
+  .wa-float { display: none !important; }
+  .back-top { display: none !important; }
+  .sticky-cta { display: block; }
+  body.has-sticky-cta { padding-bottom: 80px; }
+
+  /* === SAFETY: respeita prefers-reduced-motion e bateria fraca === */
+  /* Já tratado globalmente pelo @media (prefers-reduced-motion: reduce) acima */
 }
 
 @media (max-width: 480px) {
@@ -2185,7 +2257,54 @@ em { font-style: italic; }
     top: 64px;
     height: calc(100vh - 64px);
   }
+
+  /* === Telas muito pequenas (iPhone SE, etc): mais sutil ainda === */
+  /* Float ainda menor pra não competir com badge na tela apertada */
+  @keyframes bottleFloatMobile {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(0, -4px, 0); }
+  }
+  /* Topbar marquee ainda mais devagar pra leitura confortável em tela pequena */
+  .topbar__track { animation-duration: 75s; }
+  /* Sparks: opacity menor pra não competir com texto */
+  .hero__sparks { opacity: .25; }
 }
+
+/* === Conexões lentas (Save-Data) e displays low-end: desliga animações decorativas === */
+/* Save-Data é flag que browsers Chrome/Edge mobile setam quando usuário tá no economia de dados */
+@media (prefers-reduced-data: reduce) {
+  .hero__glow,
+  .hero__glow--1,
+  .hero__glow--2,
+  .hero__sparks,
+  .hero__product-glow,
+  .badge-floating,
+  .kit--featured::before,
+  .topbar__track,
+  .final-cta__glow,
+  .final-cta__glow--1,
+  .final-cta__glow--2 {
+    animation: none !important;
+  }
+}
+
+/* === Dispositivos low-end (detectados via JS: poucos cores, pouca RAM, bateria baixa) === */
+/* Mantém o site bonito mas zera animações infinitas pesadas pra preservar bateria */
+.low-power .hero__glow,
+.low-power .hero__glow--1,
+.low-power .hero__glow--2,
+.low-power .hero__sparks,
+.low-power .hero__product-glow,
+.low-power .hero__bottle-img,
+.low-power .badge-floating,
+.low-power .kit--featured::before,
+.low-power .topbar__track,
+.low-power .final-cta__glow,
+.low-power .final-cta__glow--1,
+.low-power .final-cta__glow--2 {
+  animation: none !important;
+}
+.low-power .badge-floating { transform: rotate(-12deg); }
 
 @media print {
   .topbar, .header, .wa-float, .back-top, .cookie-banner, .sticky-cta, .hero__bg, .cursor-glow { display: none; }
@@ -2972,6 +3091,41 @@ em { font-style: italic; }
 <script>
 (function() {
   'use strict';
+
+  // === DETECÇÃO INTELIGENTE DE PERFORMANCE ===
+  // Ativa modo low-power apenas em sinais FORTES de dispositivo realmente fraco.
+  // Threshold conservador pra não punir celulares medianos (4-6 cores são comuns).
+  function detectLowPower() {
+    var lowPower = false;
+    // Cores muito baixos (≤2): celular muito antigo
+    if (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2) {
+      lowPower = true;
+    }
+    // Pouca RAM: ≤1GB é dispositivo antigo de verdade
+    if (navigator.deviceMemory && navigator.deviceMemory <= 1) {
+      lowPower = true;
+    }
+    // Save-Data: usuário pediu economia (intenção explícita, respeita)
+    if (navigator.connection && navigator.connection.saveData) {
+      lowPower = true;
+    }
+    // Conexão 2G/slow-2g: provavelmente Brasil interior em rede ruim
+    if (navigator.connection && navigator.connection.effectiveType) {
+      var et = navigator.connection.effectiveType;
+      if (et === '2g' || et === 'slow-2g') lowPower = true;
+    }
+    if (lowPower) document.documentElement.classList.add('low-power');
+
+    // Battery API: bateria abaixo de 15% sem carregar = compaixão pelo usuário
+    if (navigator.getBattery) {
+      navigator.getBattery().then(function(battery) {
+        if (battery.level < 0.15 && !battery.charging) {
+          document.documentElement.classList.add('low-power');
+        }
+      }).catch(function() { /* ignora */ });
+    }
+  }
+  detectLowPower();
 
   // Year
   var yearEl = document.getElementById('year');
