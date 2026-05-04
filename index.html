@@ -508,6 +508,9 @@ em { font-style: italic; }
 .nav a:hover { color: var(--gold); }
 .nav a:hover::after { width: 100%; }
 
+/* CTA dentro do menu — só aparece no mobile (.nav.open) */
+.nav__cta { display: none; }
+
 .burger {
   display: none;
   width: 32px; height: 32px;
@@ -2072,21 +2075,53 @@ em { font-style: italic; }
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 78px;
+    top: 70px;
     left: 0; right: 0;
-    background: rgba(8, 3, 10, .98);
-    backdrop-filter: blur(22px);
-    padding: 30px 24px;
+    bottom: 0;
+    height: calc(100vh - 70px);
+    background: #0A0405;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    padding: 30px 24px 40px;
     gap: 0;
     border-top: 1px solid var(--line-gold);
     z-index: 89;
+    overflow-y: auto;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
   }
   .nav.open a {
-    padding: 16px 0;
-    font-size: 16px;
+    padding: 18px 0;
+    font-size: 17px;
     border-bottom: 1px solid var(--line);
+    color: var(--text);
   }
+  .nav.open a:last-child { border-bottom: none; }
+
+  /* CTA WhatsApp dentro do menu mobile */
+  .nav.open .nav__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 28px;
+    padding: 16px 28px;
+    background: linear-gradient(135deg, var(--wa) 0%, var(--wa-dark) 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 100px;
+    border-bottom: none;
+    box-shadow: 0 8px 24px -6px rgba(37, 211, 102, 0.4);
+    transition: transform .3s ease;
+  }
+  .nav.open .nav__cta:hover { transform: translateY(-2px); }
+  .nav.open .nav__cta::after { display: none; }
   .burger { display: flex; }
+
+  /* Quando menu mobile está aberto, travar scroll do body */
+  body.nav-open { overflow: hidden; }
 
   .topbar { font-size: 11px; letter-spacing: 1.2px; }
 
@@ -2097,9 +2132,21 @@ em { font-style: italic; }
   .hero__title { font-size: clamp(40px, 11vw, 56px); margin-bottom: 18px; }
   .hero__sub { max-width: 100%; margin-left: auto; margin-right: auto; font-size: 15.5px; margin-bottom: 26px; }
   .hero__ctas { justify-content: center; }
-  .hero__seals { justify-content: center; flex-wrap: wrap; gap: 18px; }
+  .hero__seals {
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 12px 8px;
+    padding-top: 22px;
+  }
+  .seal { font-size: 10.5px; gap: 8px; }
+  .seal svg { width: 18px; height: 18px; }
   .hero__visual { order: -1; max-width: 320px; margin: 0 auto; }
-  .badge-floating { width: 90px; height: 90px; }
+  .badge-floating {
+    width: 80px;
+    height: 80px;
+    top: 8px;
+    right: 8px;
+  }
 
   .connect-line { padding: 18px 22px; gap: 16px; }
   .connect-line__num { font-size: 26px; width: 36px; }
@@ -2135,31 +2182,50 @@ em { font-style: italic; }
   .cookie-banner__inner { flex-direction: column; align-items: stretch; }
   .cookie-banner__btns .btn { flex: 1; }
 
-  .wa-float {
-    width: 56px; height: 56px;
-    bottom: 86px; right: 18px;
-  }
-  .wa-float svg { width: 28px; height: 28px; }
-  .back-top { bottom: 156px; right: 22px; width: 40px; height: 40px; }
+  /* No mobile, o sticky CTA já cumpre o papel — escondemos os flutuantes para evitar empilhamento e sobreposição em textos */
+  .wa-float { display: none !important; }
+  .back-top { display: none !important; }
 
   .sticky-cta { display: block; }
 
   /* Quando sticky CTA está ativo, dar espaço pro conteúdo */
   body.has-sticky-cta { padding-bottom: 80px; }
+
+  /* Desligar animações decorativas infinitas no mobile — economia de bateria, evita tremedeira e melhora estabilidade visual */
+  .hero__bottle-img { animation: none !important; }
+  .hero__product-glow { animation: none !important; opacity: .8; }
+  .badge-floating { animation: none !important; transform: rotate(-12deg); }
+  .hero__sparks { animation: none !important; opacity: .35; }
+  .hero__glow--1, .hero__glow--2 { animation: none !important; }
+  .eyebrow__dot { animation: none !important; }
+  .topbar__track { animation-duration: 60s; }
+
+  /* Border beam do kit destaque: simplificar (a animação `mask-composite` é cara em GPU mobile) */
+  .kit--featured::before { animation: none !important; opacity: .6; }
 }
 
 @media (max-width: 480px) {
   .container { padding: 0 18px; }
-  .header__inner { height: 70px; gap: 12px; }
-  .logo__name { font-size: 18px; }
+  .header__inner { height: 64px; gap: 10px; }
+  .logo__name { font-size: 17px; letter-spacing: 2px; }
   .logo__tag { font-size: 8px; }
-  .btn--header { padding: 9px 16px; font-size: 12px; }
+  .logo__mark { width: 34px; height: 34px; }
+  .logo__mark svg { width: 19px; height: 19px; }
+  /* No mobile pequeno escondemos o botão "Falar agora" do header — temos sticky CTA persistente e WhatsApp via menu */
+  .btn--header { display: none; }
   .seal { font-size: 10.5px; }
   .seal svg { width: 18px; height: 18px; }
-  .badge-floating { width: 80px; height: 80px; }
+  .badge-floating { width: 76px; height: 76px; top: 6px; right: 6px; }
+  .badge-floating__text span { font-size: 7px; }
+  .badge-floating__text strong { font-size: 11px; }
   .spotlight__title { font-size: clamp(28px, 8vw, 38px); }
   .kit__value { font-size: 46px; }
   .kit__cents { font-size: 20px; }
+  /* Ajuste do menu aberto pra alinhar com nova altura do header */
+  .nav.open {
+    top: 64px;
+    height: calc(100vh - 64px);
+  }
 }
 
 @media print {
@@ -2229,6 +2295,10 @@ em { font-style: italic; }
       <a href="#oferta">Kits</a>
       <a href="#confianca">Confiança</a>
       <a href="#faq">Dúvidas</a>
+      <a href="https://wa.me/5541999870033?text=Ol%C3%A1!%20Quero%20conversar%20sobre%20o%20QUERO%2B" class="nav__cta" data-track="menu_whatsapp" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91A9.86 9.86 0 0 0 12.04 2zm0 18.15h-.01a8.18 8.18 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.21 8.21 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.23-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.69 8.23-8.23 8.23z"/></svg>
+        Falar no WhatsApp
+      </a>
     </nav>
 
     <a href="https://wa.me/5541999870033?text=Ol%C3%A1!%20Quero%20falar%20sobre%20o%20QUERO%2B" class="btn btn--header" data-track="header_whatsapp" target="_blank" rel="noopener">
@@ -3024,11 +3094,13 @@ em { font-style: italic; }
     burger.addEventListener('click', function() {
       var open = nav.classList.toggle('open');
       burger.setAttribute('aria-expanded', open);
+      document.body.classList.toggle('nav-open', open);
     });
     nav.querySelectorAll('a').forEach(function(link) {
       link.addEventListener('click', function() {
         nav.classList.remove('open');
         burger.setAttribute('aria-expanded', false);
+        document.body.classList.remove('nav-open');
       });
     });
   }
