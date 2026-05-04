@@ -2183,6 +2183,11 @@ em { font-style: italic; }
   .sticky-cta { background: rgba(8, 3, 10, 0.97); }
   .cookie-banner { background: rgba(8, 3, 10, 0.97); }
 
+  /* No mobile, header SEMPRE VISÍVEL — desliga o hide-on-scroll porque ele
+     cria movimento indesejado durante scroll rápido (sensação de "bug visual").
+     Header fixo é mais previsível e não compete com o scroll do usuário. */
+  .header.hidden { transform: none !important; }
+
   /* No mobile, sticky CTA + menu cumpre o papel — esconde botão duplicado do header */
   .btn--header { display: none; }
   /* Quando menu mobile está aberto, travar scroll do body */
@@ -2360,16 +2365,18 @@ em { font-style: italic; }
     filter: blur(50px);
   }
 
-  /* REVEAL ON SCROLL mobile: rápido e sutil pra não competir com o scroll do usuário.
-     Quando reveal demora > 500ms, scroll rápido cria sensação de "elementos subindo
-     na direção errada". Solução: 350ms + apenas 8px de deslocamento. */
+  /* REVEAL ON SCROLL mobile: APENAS fade, SEM deslocamento.
+     Por que: durante scroll rápido, elementos com translateY entram na viewport
+     deslocados, e ao serem revelados "sobem" pra posição final — o usuário
+     percebe esse movimento como se os itens estivessem indo contra o scroll
+     (sensação de "elementos subindo no celular"). Solução: zerar deslocamento
+     no mobile, fazer só opacity. Elemento aparece exatamente onde está. */
   .reveal {
-    transform: translate3d(0, 8px, 0);
-    transition-duration: .35s;
-    transition-timing-function: ease-out;
+    transform: none;
+    transition: opacity .25s ease-out;
   }
   .reveal.is-visible {
-    transform: translate3d(0, 0, 0);
+    transform: none;
   }
 
   /* WA-FLOAT desktop fica escondido no mobile (sticky CTA cumpre o papel) */
