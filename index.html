@@ -1360,15 +1360,20 @@ em { font-style: italic; }
 .offer .container { position: relative; z-index: 1; }
 .offer__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
   margin-bottom: 36px;
-  max-width: 1200px;
+  max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
 }
+@media (max-width: 1100px) {
+  .offer__grid { grid-template-columns: repeat(2, 1fr); gap: 22px; max-width: 800px; }
+  .kit--featured { transform: none; }
+  .kit--featured:hover { transform: translateY(-6px); }
+}
 .kit {
-  padding: 38px 30px;
+  padding: 32px 24px;
   background: rgba(8, 3, 10, .75);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -1582,6 +1587,41 @@ em { font-style: italic; }
   color: var(--bg);
   transform: translateY(-2px);
   box-shadow: 0 10px 30px -6px rgba(232, 199, 126, .3);
+}
+
+/* Kit Anual — visual PREMIUM em ouro sólido (maior economia, plano completo) */
+.kit--premium {
+  background: linear-gradient(180deg, rgba(232, 199, 126, .12) 0%, rgba(8, 3, 10, .92) 100%);
+  border: 2px solid var(--gold);
+  box-shadow: 0 24px 60px -10px rgba(232, 199, 126, .25);
+  position: relative;
+}
+.kit--premium:hover {
+  border-color: var(--gold);
+  transform: translateY(-6px);
+  box-shadow: 0 30px 70px -10px rgba(232, 199, 126, .35);
+}
+.kit--premium .kit__name { color: var(--gold); }
+.kit--premium .kit__value,
+.kit--premium .kit__cents,
+.kit--premium .kit__currency { color: var(--gold); }
+.kit__ribbon--gold {
+  background: linear-gradient(135deg, var(--gold), #c9a96b) !important;
+  color: var(--bg) !important;
+  font-weight: 700;
+}
+.kit__cta--premium {
+  background: linear-gradient(135deg, var(--gold), #c9a96b);
+  border-color: var(--gold);
+  color: var(--bg);
+  font-weight: 700;
+  box-shadow: 0 10px 30px -6px rgba(232, 199, 126, .35);
+}
+.kit__cta--premium:hover {
+  background: linear-gradient(135deg, #f5d995, var(--gold));
+  border-color: #f5d995;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px -6px rgba(232, 199, 126, .5);
 }
 
 .offer__guarantee {
@@ -2509,11 +2549,11 @@ em { font-style: italic; }
   <div class="topbar__track">
     <span class="topbar__item">✦ Velmora · Curitiba/PR</span>
     <span class="topbar__item">✦ Garantia de satisfação · 30 dias</span>
-    <span class="topbar__item">✦ Atendimento humano via WhatsApp</span>
+    <span class="topbar__item">✦ Compra 100% segura · Pix, cartão ou boleto</span>
     <span class="topbar__item">✦ Frete para todo o Brasil</span>
     <span class="topbar__item">✦ Velmora · Curitiba/PR</span>
     <span class="topbar__item">✦ Garantia de satisfação · 30 dias</span>
-    <span class="topbar__item">✦ Atendimento humano via WhatsApp</span>
+    <span class="topbar__item">✦ Compra 100% segura · Pix, cartão ou boleto</span>
     <span class="topbar__item">✦ Frete para todo o Brasil</span>
   </div>
 </div>
@@ -2542,16 +2582,16 @@ em { font-style: italic; }
       <a href="#oferta">Kits</a>
       <a href="#confianca">Confiança</a>
       <a href="#faq">Dúvidas</a>
-      <a href="https://wa.me/5541999870033?text=Ol%C3%A1!%20Quero%20conversar%20sobre%20o%20QUERO%2B" class="nav__cta" data-track="menu_whatsapp" target="_blank" rel="noopener">
+      <a href="https://wa.me/5541999870033?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20QUERO%2B" class="nav__cta" data-track="menu_whatsapp" target="_blank" rel="noopener">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91A9.86 9.86 0 0 0 12.04 2zm0 18.15h-.01a8.18 8.18 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.21 8.21 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.23-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.69 8.23-8.23 8.23z"/></svg>
-        Falar no WhatsApp
+        Tirar dúvida no WhatsApp
       </a>
       <span class="nav__signature">Curitiba/PR · Brasil</span>
     </nav>
 
-    <a href="https://wa.me/5541999870033?text=Ol%C3%A1!%20Quero%20falar%20sobre%20o%20QUERO%2B" class="btn btn--header" data-track="header_whatsapp" target="_blank" rel="noopener">
-      Falar agora
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91A9.86 9.86 0 0 0 12.04 2zm0 18.15h-.01a8.18 8.18 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.21 8.21 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.23-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.69 8.23-8.23 8.23z"/></svg>
+    <a href="#oferta" class="btn btn--header" data-track="header_ver_kits">
+      Ver kits
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
 
     <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" type="button">
@@ -2586,15 +2626,15 @@ em { font-style: italic; }
       </p>
       <div class="hero__ctas">
         <a href="#oferta" class="btn btn--primary" data-track="hero_offer">
-          Quero conhecer os kits
+          Comprar agora
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
-        <a href="https://wa.me/5541999870033?text=Ol%C3%A1!%20Quero%20conversar%20sobre%20o%20QUERO%2B" class="btn btn--ghost" data-track="hero_whatsapp" target="_blank" rel="noopener">
+        <a href="https://wa.me/5541999870033?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20QUERO%2B" class="btn btn--ghost" data-track="hero_whatsapp" target="_blank" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91A9.86 9.86 0 0 0 12.04 2zm0 18.15h-.01a8.18 8.18 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.21 8.21 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.23-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.69 8.23-8.23 8.23z"/></svg>
-          Quero falar com atendimento
+          Tirar dúvida no WhatsApp
         </a>
       </div>
-      <p class="hero__micro"><strong>Atendimento humano</strong> · Garantia 30 dias · Envio para todo Brasil</p>
+      <p class="hero__micro"><strong>Compra 100% segura</strong> · Pix, cartão ou boleto · Garantia 30 dias</p>
 
       <div class="hero__seals">
         <div class="seal">
@@ -2889,18 +2929,18 @@ em { font-style: italic; }
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow eyebrow--center eyebrow--gold"><span class="eyebrow__dot"></span> Escolha o seu kit</span>
-      <h2 class="section-title">Três opções <em>pensadas para sua rotina</em></h2>
-      <p class="section-sub">Quanto mais unidades, melhor o valor por dose. Compra finalizada pelo WhatsApp — pagamento via Pix, cartão ou boleto.</p>
+      <h2 class="section-title">Quatro opções <em>pensadas para sua rotina</em></h2>
+      <p class="section-sub">Quanto mais potes, menor o valor por dose. Compra 100% online — pagamento seguro via Pix, cartão ou boleto. Dúvidas? Fale no WhatsApp antes de comprar.</p>
     </div>
 
     <div class="offer__grid">
-      <!-- Kit 1 -->
+      <!-- Kit 1: 1 mês -->
       <article class="kit reveal">
         <header class="kit__head">
-          <h3 class="kit__name">Kit Início</h3>
-          <p class="kit__sub">Para conhecer no seu tempo</p>
+          <h3 class="kit__name">Essencial</h3>
+          <p class="kit__sub">1 mês de QUERO+</p>
         </header>
-        <div class="kit__qty"><strong>1 unidade</strong> · 210g · ~30 doses</div>
+        <div class="kit__qty"><strong>1 pote</strong> · 210g · ~30 doses</div>
         <div class="kit__price">
           <span class="kit__currency">R$</span>
           <span class="kit__value">209</span>
@@ -2913,66 +2953,91 @@ em { font-style: italic; }
           <li>Atendimento humano via WhatsApp</li>
           <li>Frete sob consulta</li>
         </ul>
-        <a href="https://wa.me/5541999870033?text=Ol%C3%A1!%20Quero%20o%20Kit%20In%C3%ADcio%20do%20QUERO%2B%20(1%20unidade%20-%20R%24%20209%2C90).%20Pode%20me%20ajudar%3F" class="btn kit__cta" data-track="oferta_kit_inicio" target="_blank" rel="noopener">
-          Quero pedir pelo WhatsApp
+        <a href="https://pay.hest.com.br/0271bbdb-cd33-40a1-89c3-2ba5c9af7394" class="btn kit__cta" data-track="oferta_kit_essencial" target="_blank" rel="noopener">
+          Comprar agora
         </a>
       </article>
 
-      <!-- Kit 2 - destaque -->
+      <!-- Kit 2: 3 meses - DESTAQUE -->
       <article class="kit kit--featured reveal">
         <span class="kit__ribbon">Mais escolhido ★</span>
         <header class="kit__head">
-          <h3 class="kit__name">Kit Ritual</h3>
-          <p class="kit__sub">A escolha mais inteligente</p>
+          <h3 class="kit__name">Ritual</h3>
+          <p class="kit__sub">3 meses de QUERO+</p>
         </header>
-        <div class="kit__qty"><strong>2 unidades</strong> · 420g · ~60 doses</div>
+        <div class="kit__qty"><strong>3 potes</strong> · 630g · ~90 doses</div>
         <div class="kit__price">
           <span class="kit__currency">R$</span>
-          <span class="kit__value">379</span>
-          <span class="kit__cents">,00</span>
+          <span class="kit__value">335</span>
+          <span class="kit__cents">,70</span>
         </div>
-        <p class="kit__per-unit">≈ <strong>R$ 6,32 por dose</strong> · economia de R$ 40,80</p>
+        <p class="kit__per-unit">≈ <strong>R$ 3,73 por dose</strong> · economia de R$ 294,00</p>
         <ul class="kit__feats">
-          <li>2 potes QUERO+ Frutas Vermelhas</li>
+          <li>3 potes QUERO+ Frutas Vermelhas</li>
           <li><strong>Frete grátis para todo Brasil</strong></li>
           <li>Garantia de satisfação 30 dias</li>
           <li>Atendimento humano via WhatsApp</li>
           <li>Ideal para sustentar constância</li>
         </ul>
-        <a href="https://wa.me/5541999870033?text=Ol%C3%A1!%20Quero%20o%20Kit%20Ritual%20com%202%20unidades%20do%20QUERO%2B%20(R%24%20379%2C00%20com%20frete%20gr%C3%A1tis).%20Pode%20me%20ajudar%3F" class="btn kit__cta kit__cta--featured" data-track="oferta_kit_ritual" target="_blank" rel="noopener">
-          Quero garantir meu kit
+        <a href="https://pay.hest.com.br/c4581c4f-9114-472f-8056-31c745d00cbb" class="btn kit__cta kit__cta--featured" data-track="oferta_kit_ritual" target="_blank" rel="noopener">
+          Comprar agora
         </a>
       </article>
 
-      <!-- Kit 3 -->
+      <!-- Kit 3: 5 meses -->
       <article class="kit reveal">
         <header class="kit__head">
-          <h3 class="kit__name">Kit Constância</h3>
-          <p class="kit__sub">Melhor valor por dose</p>
+          <h3 class="kit__name">Constância</h3>
+          <p class="kit__sub">5 meses de QUERO+</p>
         </header>
-        <div class="kit__qty"><strong>3 unidades</strong> · 630g · ~90 doses</div>
+        <div class="kit__qty"><strong>5 potes</strong> · 1050g · ~150 doses</div>
         <div class="kit__price">
           <span class="kit__currency">R$</span>
-          <span class="kit__value">529</span>
-          <span class="kit__cents">,00</span>
+          <span class="kit__value">461</span>
+          <span class="kit__cents">,50</span>
         </div>
-        <p class="kit__per-unit">≈ <strong>R$ 5,88 por dose</strong> · economia de R$ 100,70</p>
+        <p class="kit__per-unit">≈ <strong>R$ 3,08 por dose</strong> · economia de R$ 588,00</p>
         <ul class="kit__feats">
-          <li>3 potes QUERO+ Frutas Vermelhas</li>
+          <li>5 potes QUERO+ Frutas Vermelhas</li>
           <li><strong>Frete grátis para todo Brasil</strong></li>
-          <li><strong>Maior economia por dose</strong></li>
           <li>Garantia de satisfação 30 dias</li>
           <li>Atendimento prioritário</li>
         </ul>
-        <a href="https://wa.me/5541999870033?text=Ol%C3%A1!%20Quero%20o%20Kit%20Const%C3%A2ncia%20com%203%20unidades%20do%20QUERO%2B%20(R%24%20529%2C00%20com%20frete%20gr%C3%A1tis).%20Pode%20me%20ajudar%3F" class="btn kit__cta kit__cta--gold" data-track="oferta_kit_premium" target="_blank" rel="noopener">
-          Quero escolher minha opção
+        <a href="https://pay.hest.com.br/ec1c7606-ea22-4ff7-835f-d088acf2d4c7" class="btn kit__cta kit__cta--gold" data-track="oferta_kit_constancia" target="_blank" rel="noopener">
+          Comprar agora
+        </a>
+      </article>
+
+      <!-- Kit 4: 12 meses - PREMIUM -->
+      <article class="kit kit--premium reveal">
+        <span class="kit__ribbon kit__ribbon--gold">Maior economia ✦</span>
+        <header class="kit__head">
+          <h3 class="kit__name">Anual</h3>
+          <p class="kit__sub">12 meses de QUERO+</p>
+        </header>
+        <div class="kit__qty"><strong>12 potes</strong> · 2520g · ~360 doses</div>
+        <div class="kit__price">
+          <span class="kit__currency">R$</span>
+          <span class="kit__value">851</span>
+          <span class="kit__cents">,00</span>
+        </div>
+        <p class="kit__per-unit">≈ <strong>R$ 2,36 por dose</strong> · economia de R$ 1.667,80</p>
+        <ul class="kit__feats">
+          <li>12 potes QUERO+ Frutas Vermelhas</li>
+          <li><strong>Frete grátis para todo Brasil</strong></li>
+          <li><strong>Menor preço por dose</strong></li>
+          <li>Garantia de satisfação 30 dias</li>
+          <li>Atendimento VIP via WhatsApp</li>
+        </ul>
+        <a href="https://pay.hest.com.br/4d7766f5-86c8-4fa2-87b1-bf0d48f9d7b7" class="btn kit__cta kit__cta--premium" data-track="oferta_kit_anual" target="_blank" rel="noopener">
+          Comprar agora
         </a>
       </article>
     </div>
 
     <p class="offer__guarantee">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/></svg>
-      <span><strong>Garantia de satisfação 30 dias.</strong> Não funcionou para você? Solicite análise junto ao SAC.</span>
+      <span><strong>Compra 100% segura.</strong> Pagamento processado por gateway certificado. Garantia de satisfação 30 dias — não funcionou? Devolvemos seu dinheiro.</span>
     </p>
   </div>
 </section>
@@ -3125,7 +3190,7 @@ em { font-style: italic; }
       </details>
       <details class="faq-item reveal">
         <summary>Como é a compra?</summary>
-        <div class="faq-item__body">A compra é finalizada pelo WhatsApp, com atendimento humano. Confirmamos seu pedido, dados de entrega e a forma de pagamento que preferir: <strong>Pix, cartão ou boleto</strong>. Sem cadastro complicado e sem checkout que trava.</div>
+        <div class="faq-item__body">A compra é <strong>100% online e segura</strong>. Você escolhe o kit, clica em "Comprar agora" e finaliza no checkout — pagamento via <strong>Pix, cartão ou boleto</strong>. Pix tem confirmação instantânea, cartão pode parcelar. Tem dúvida antes de comprar? Fale no WhatsApp e atendimento humano te ajuda.</div>
       </details>
       <details class="faq-item reveal">
         <summary>Em quanto tempo recebo?</summary>
@@ -3164,15 +3229,15 @@ em { font-style: italic; }
   <div class="container">
     <div class="final-cta__inner reveal">
       <span class="eyebrow eyebrow--center eyebrow--gold"><span class="eyebrow__dot"></span> Próximo passo</span>
-      <h2>Quando fizer sentido <em>para você</em>.</h2>
-      <p>Sem pressão, sem urgência forçada. A Velmora está aqui quando estiver pronta(o) — atendimento humano, resposta rápida pelo WhatsApp.</p>
+      <h2>Pronta(o) para começar <em>seu ritual?</em></h2>
+      <p>Compra 100% online, pagamento seguro via Pix, cartão ou boleto. Tem alguma dúvida antes de comprar? Atendimento humano pelo WhatsApp, resposta rápida.</p>
       <div class="final-cta__btns">
         <a href="#oferta" class="btn btn--primary btn--lg" data-track="final_cta_offer">
-          Ver kits e preços
+          Ver kits e comprar
         </a>
-        <a href="https://wa.me/5541999870033?text=Ol%C3%A1!%20Quero%20entender%20qual%20kit%20do%20QUERO%2B%20faz%20mais%20sentido%20para%20mim" class="btn btn--ghost btn--lg" data-track="final_cta_whatsapp" target="_blank" rel="noopener">
+        <a href="https://wa.me/5541999870033?text=Ol%C3%A1!%20Quero%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20QUERO%2B%20antes%20de%20comprar" class="btn btn--ghost btn--lg" data-track="final_cta_whatsapp" target="_blank" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91A9.86 9.86 0 0 0 12.04 2zm0 18.15h-.01a8.18 8.18 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.21 8.21 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.23-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.69 8.23-8.23 8.23z"/></svg>
-          Falar no WhatsApp agora
+          Tirar dúvida no WhatsApp
         </a>
       </div>
     </div>
@@ -3239,7 +3304,7 @@ em { font-style: italic; }
 </footer>
 
 <!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/5541999870033?text=Ol%C3%A1!%20Quero%20conversar%20sobre%20o%20QUERO%2B" class="wa-float" data-track="float_whatsapp" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+<a href="https://wa.me/5541999870033?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20QUERO%2B" class="wa-float" data-track="float_whatsapp" target="_blank" rel="noopener" aria-label="Tirar dúvida no WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91A9.86 9.86 0 0 0 12.04 2zm0 18.15h-.01a8.18 8.18 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.21 8.21 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.23-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.69 8.23-8.23 8.23z"/></svg>
 </a>
 
@@ -3253,11 +3318,11 @@ em { font-style: italic; }
   <div class="sticky-cta__inner">
     <div class="sticky-cta__price">
       <span class="sticky-cta__price-label">QUERO+ a partir de</span>
-      <span class="sticky-cta__price-value">R$ 209,90</span>
+      <span class="sticky-cta__price-value">R$ 2,36/dose</span>
     </div>
-    <a href="https://wa.me/5541999870033?text=Ol%C3%A1!%20Quero%20o%20QUERO%2B" class="sticky-cta__btn" data-track="sticky_cta_mobile" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91A9.86 9.86 0 0 0 12.04 2zm0 18.15h-.01a8.18 8.18 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.21 8.21 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.23-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.69 8.23-8.23 8.23z"/></svg>
-      Quero o meu
+    <a href="#oferta" class="sticky-cta__btn" data-track="sticky_cta_mobile">
+      Comprar
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
   </div>
 </div>
