@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="theme-color" content="#0A0405">
+  <meta name="theme-color" content="#5D0A1B">
 
   <!-- SEO -->
   <title>QUERO+ · Velmora — Bebida em Pó para Vitalidade Diária | Curitiba/PR</title>
@@ -11,14 +11,14 @@
   <meta name="keywords" content="quero mais, velmora, suplemento alimentar, bebida em pó, vitalidade, disposição, bem-estar, frutas vermelhas">
   <meta name="author" content="Velmora · Saúde, Energia & Desejo">
   <meta name="robots" content="index, follow, max-image-preview:large">
-  <link rel="canonical" href="https://velmora.com.br/">
+  <link rel="canonical" href="https://velmora-saude.com.br/">
 
   <!-- OG -->
   <meta property="og:type" content="product">
   <meta property="og:title" content="QUERO+ · Velmora — Bebida em Pó para Vitalidade Diária">
   <meta property="og:description" content="O ritual diário de quem decidiu cuidar de si. Frutas vermelhas, ingredientes selecionados, atendimento humano via WhatsApp.">
-  <meta property="og:url" content="https://velmora.com.br/">
-  <meta property="og:image" content="https://velmora.com.br/og-image.jpg">
+  <meta property="og:url" content="https://velmora-saude.com.br/">
+  <meta property="og:image" content="https://velmora-saude.com.br/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="pt_BR">
@@ -27,14 +27,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="QUERO+ · Velmora — Bebida em Pó para Vitalidade Diária">
   <meta name="twitter:description" content="O ritual diário de quem decidiu cuidar de si.">
-  <meta name="twitter:image" content="https://velmora.com.br/og-image.jpg">
+  <meta name="twitter:image" content="https://velmora-saude.com.br/og-image.jpg">
 
   <meta name="facebook-domain-verification" content="COLOQUE_O_CODIGO_AQUI">
   <meta name="google-site-verification" content="COLOQUE_O_CODIGO_AQUI">
 
-  <!-- Favicon: WebP pra browsers modernos (mais leve), PNG fallback pra compatibilidade total.
-       O browser usa o PRIMEIRO formato que entende — WebP (Chrome/Edge/Firefox) ou PNG (todos).
-       apple-touch-icon e ICO ficam em PNG/ICO porque iOS e bookmarks antigos exigem. -->
+  <!-- Favicon: WebP pra browsers modernos (mais leve), PNG fallback pra compatibilidade total. -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/webp" sizes="16x16" href="favicon-16x16.webp">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -50,7 +48,6 @@
   <link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#5D0A1B">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,8 +63,8 @@
     "@type": "Organization",
     "name": "Velmora",
     "alternateName": "Saúde, Energia & Desejo",
-    "url": "https://velmora.com.br/",
-    "logo": "https://velmora.com.br/logo-velmora.png",
+    "url": "https://velmora-saude.com.br/",
+    "logo": "https://velmora-saude.com.br/logo-velmora.png",
     "description": "Linha Velmora de suplementos alimentares e produtos de cuidado pessoal.",
     "address": {"@type": "PostalAddress", "addressLocality": "Curitiba", "addressRegion": "PR", "addressCountry": "BR"},
     "contactPoint": {"@type": "ContactPoint", "contactType": "customer service", "telephone": "+55-41-99987-0033", "areaServed": "BR", "availableLanguage": "Portuguese"},
@@ -79,7 +76,7 @@
     "@context": "https://schema.org",
     "@type": "Product",
     "name": "QUERO+ Pó para Preparo de Bebida",
-    "image": "https://velmora.com.br/quero-mais.png",
+    "image": "https://velmora-saude.com.br/quero-mais.png",
     "description": "Suplemento alimentar em pó sabor frutas vermelhas com ingredientes naturais. Apoio à vitalidade diária.",
     "brand": {"@type": "Brand", "name": "Velmora"},
     "category": "Suplemento Alimentar",
@@ -1927,6 +1924,42 @@ em { font-style: italic; }
   border-top: 1px solid var(--line);
 }
 
+/* === ASSINATURA GUSTAVO DIGITAL === */
+.footer__signature {
+  text-align: center;
+  margin-top: 14px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.8px;
+  font-weight: 400;
+}
+.footer__signature-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 0 4px;
+  transition: color .3s ease, text-shadow .3s ease;
+  position: relative;
+}
+.footer__signature-link svg {
+  color: var(--gold);
+  transition: transform .4s cubic-bezier(.16,.84,.44,1), color .3s;
+}
+.footer__signature-link:hover {
+  color: var(--gold-light);
+  text-shadow: 0 0 12px rgba(232, 199, 126, 0.4);
+}
+.footer__signature-link:hover svg {
+  color: var(--gold-light);
+  transform: rotate(180deg) scale(1.15);
+}
+
 /* === WHATSAPP FLOAT === */
 .wa-float {
   position: fixed;
@@ -2336,12 +2369,7 @@ em { font-style: italic; }
     background: rgba(8, 3, 10, 0.98);
   }
 
-  /* === ANIMAÇÕES MOBILE: SLOW MOTION CINEMATOGRÁFICO ===
-     Velocidades extremamente lentas — tipo vídeo de marca de luxo em câmera lenta.
-     A regra: se você "percebe" a animação acontecendo em <2 segundos, ela é rápida demais.
-     Aqui tudo se move tão devagar que vira respiração visual. */
-
-  /* TOPBAR: marquee em velocidade confortável de leitura */
+  /* === ANIMAÇÕES MOBILE: SLOW MOTION CINEMATOGRÁFICO === */
   .topbar {
     padding: 7px 0;
     font-size: 11px;
@@ -2354,7 +2382,6 @@ em { font-style: italic; }
     gap: 24px;
   }
 
-  /* HERO BG: glows grandes ESTÁTICOS no mobile */
   .hero__glow,
   .hero__glow--1,
   .hero__glow--2 {
@@ -2367,12 +2394,6 @@ em { font-style: italic; }
     animation: sparksFloat 50s linear infinite;
   }
 
-  /* === POTE: 100% ESTÁTICO NO MOBILE ===
-     Tentei animar a imagem, depois o wrapper, com delays, com translate3d, com tudo.
-     Em algumas combinações específicas de iOS/Android, as transformações geravam
-     reflow loops que aceleravam exponencialmente.
-     SOLUÇÃO DEFINITIVA: pote NÃO mexe. Toda "vida" vem do glow atrás dele
-     (animação só de OPACITY — única coisa que JAMAIS causa reflow). */
   .hero__product {
     animation: none;
   }
@@ -2382,9 +2403,6 @@ em { font-style: italic; }
     will-change: auto;
   }
 
-  /* GLOW DO PRODUTO: respiração SUTIL via opacity — única animação 100% segura.
-     Opacity é a ÚNICA propriedade que NUNCA causa reflow nem repaint pesado.
-     Sem scale, sem translate, sem blur animado. Só opacity. */
   .hero__product-glow {
     animation: glowBreathe 5s ease-in-out infinite;
     filter: blur(28px);
@@ -2394,7 +2412,6 @@ em { font-style: italic; }
     50% { opacity: .7; }
   }
 
-  /* BADGE FLUTUANTE MOBILE: 100% ESTÁTICO */
   .badge-floating {
     animation: none;
     filter: drop-shadow(0 6px 14px rgba(225,29,44,.4));
@@ -2404,7 +2421,6 @@ em { font-style: italic; }
     animation: none;
   }
 
-  /* DOT DO EYEBROW: pulse muito sutil */
   .eyebrow__dot {
     animation: dotPulseMobile 4s ease-in-out infinite;
   }
@@ -2413,13 +2429,11 @@ em { font-style: italic; }
     50% { opacity: .55; }
   }
 
-  /* KIT DESTACADO: border beam em ritmo lento */
   .kit--featured::before {
     animation: beamRotate 12s linear infinite;
     opacity: .8;
   }
 
-  /* FINAL CTA glows: estáticos */
   .final-cta__glow,
   .final-cta__glow--1,
   .final-cta__glow--2 {
@@ -2427,12 +2441,6 @@ em { font-style: italic; }
     filter: blur(50px);
   }
 
-  /* REVEAL ON SCROLL mobile: APENAS fade, SEM deslocamento.
-     Por que: durante scroll rápido, elementos com translateY entram na viewport
-     deslocados, e ao serem revelados "sobem" pra posição final — o usuário
-     percebe esse movimento como se os itens estivessem indo contra o scroll
-     (sensação de "elementos subindo no celular"). Solução: zerar deslocamento
-     no mobile, fazer só opacity. Elemento aparece exatamente onde está. */
   .reveal {
     transform: none;
     transition: opacity .25s ease-out;
@@ -2441,7 +2449,6 @@ em { font-style: italic; }
     transform: none;
   }
 
-  /* WA-FLOAT desktop fica escondido no mobile (sticky CTA cumpre o papel) */
   .wa-float { display: none !important; }
   .back-top { display: none !important; }
   .sticky-cta { display: block; }
@@ -2462,21 +2469,17 @@ em { font-style: italic; }
   .spotlight__title { font-size: clamp(28px, 8vw, 38px); }
   .kit__value { font-size: 46px; }
   .kit__cents { font-size: 20px; }
-  /* Ajuste do menu aberto pra alinhar com nova altura do header */
   .nav.open {
     top: 64px;
     height: calc(100vh - 64px);
     height: calc(100dvh - 64px);
   }
 
-  /* === Telas muito pequenas (iPhone SE, etc) === */
-  /* Topbar marquee em velocidade boa pra leitura */
   .topbar__track { animation: topbarScroll 22s linear infinite !important; }
   .hero__sparks { opacity: .25; animation: sparksFloat 60s linear infinite !important; }
 }
 
 /* === Conexões lentas (Save-Data) e displays low-end: desliga animações decorativas === */
-/* Save-Data é flag que browsers Chrome/Edge mobile setam quando usuário tá no economia de dados */
 @media (prefers-reduced-data: reduce) {
   .hero__glow,
   .hero__glow--1,
@@ -2494,8 +2497,6 @@ em { font-style: italic; }
   }
 }
 
-/* === Dispositivos low-end (detectados via JS: poucos cores, pouca RAM, bateria baixa) === */
-/* Mantém o site bonito mas zera animações infinitas pesadas pra preservar bateria */
 .low-power .hero__glow,
 .low-power .hero__glow--1,
 .low-power .hero__glow--2,
@@ -3270,7 +3271,7 @@ em { font-style: italic; }
         <h4>Atendimento</h4>
         <ul>
           <li><a href="https://wa.me/5541999870033" target="_blank" rel="noopener">WhatsApp (41) 99987-0033</a></li>
-          <li><a href="mailto:contato@velmora.com.br">contato@velmora.com.br</a></li>
+          <li><a href="mailto:contato@velmora-saude.com.br">contato@velmora-saude.com.br</a></li>
           <li>Curitiba/PR · Brasil</li>
           <li>Seg a Sex · 9h às 18h</li>
         </ul>
@@ -3292,6 +3293,7 @@ em { font-style: italic; }
           <li><a href="privacidade.html">Política de Privacidade</a></li>
           <li><a href="termos.html">Termos de Uso</a></li>
           <li><a href="trocas.html">Trocas e Devoluções</a></li>
+          <li><a href="cookies.html">Política de Cookies</a></li>
         </ul>
       </div>
     </div>
@@ -3299,6 +3301,16 @@ em { font-style: italic; }
     <div class="footer__legal">
       <p><strong>Aviso legal:</strong> Os produtos da linha Velmora são suplementos alimentares e produtos de cuidado pessoal. Não previnem, diagnosticam, tratam ou curam doenças. Não substituem orientação médica, alimentação variada e equilibrada nem hábitos saudáveis. Resultados podem variar de pessoa para pessoa. Não recomendados para gestantes, lactantes, menores de 19 anos e pessoas com condições clínicas sem acompanhamento profissional. Suplementos alimentares conforme RDC 243/2018 da ANVISA.</p>
       <p>© <span id="year">2026</span> Velmora · Saúde, Energia &amp; Desejo · Curitiba/PR · Todos os direitos reservados.</p>
+      <p class="footer__signature">
+        Desenvolvido por
+        <a href="https://gustavodigital.online" target="_blank" rel="noopener" class="footer__signature-link">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"/>
+          </svg>
+          Gustavo Digital
+        </a>
+        — Curitiba/PR
+      </p>
     </div>
   </div>
 </footer>
@@ -3346,30 +3358,23 @@ em { font-style: italic; }
   'use strict';
 
   // === DETECÇÃO INTELIGENTE DE PERFORMANCE ===
-  // Ativa modo low-power apenas em sinais FORTES de dispositivo realmente fraco.
-  // Threshold conservador pra não punir celulares medianos (4-6 cores são comuns).
   function detectLowPower() {
     var lowPower = false;
-    // Cores muito baixos (≤2): celular muito antigo
     if (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2) {
       lowPower = true;
     }
-    // Pouca RAM: ≤1GB é dispositivo antigo de verdade
     if (navigator.deviceMemory && navigator.deviceMemory <= 1) {
       lowPower = true;
     }
-    // Save-Data: usuário pediu economia (intenção explícita, respeita)
     if (navigator.connection && navigator.connection.saveData) {
       lowPower = true;
     }
-    // Conexão 2G/slow-2g: provavelmente Brasil interior em rede ruim
     if (navigator.connection && navigator.connection.effectiveType) {
       var et = navigator.connection.effectiveType;
       if (et === '2g' || et === 'slow-2g') lowPower = true;
     }
     if (lowPower) document.documentElement.classList.add('low-power');
 
-    // Battery API: bateria abaixo de 15% sem carregar = compaixão pelo usuário
     if (navigator.getBattery) {
       navigator.getBattery().then(function(battery) {
         if (battery.level < 0.15 && !battery.charging) {
@@ -3384,11 +3389,7 @@ em { font-style: italic; }
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // === SCROLL HANDLER UNIFICADO (corrige bug de "pulo infinito" no mobile) ===
-  // Problema original: 3 listeners separados de scroll, sem throttle, causando layout thrashing
-  // no iOS quando a barra do Safari aparece/some (ela dispara scroll events mesmo sem o usuário scrollar).
-  // Solução: 1 único listener com requestAnimationFrame throttle + threshold de 5px + estado cacheado.
-
+  // === SCROLL HANDLER UNIFICADO ===
   var header = document.getElementById('header');
   var btt = document.getElementById('backTop');
   var stickyCta = document.getElementById('stickyCta');
@@ -3401,7 +3402,7 @@ em { font-style: italic; }
   }
 
   var lastScroll = 0;
-  var lastDirection = 0; // 1 = down, -1 = up, 0 = none
+  var lastDirection = 0;
   var ticking = false;
   var headerHidden = false;
   var bttShown = false;
@@ -3411,7 +3412,6 @@ em { font-style: italic; }
     var s = window.pageYOffset;
     var delta = s - lastScroll;
 
-    // Threshold mínimo: ignora micro-mudanças (iOS bar retraindo dispara ~1-3px de "scroll")
     if (Math.abs(delta) < 5) {
       ticking = false;
       return;
@@ -3419,14 +3419,12 @@ em { font-style: italic; }
 
     var direction = delta > 0 ? 1 : -1;
 
-    // Header scrolled state
     if (s > 50) {
       if (!header.classList.contains('scrolled')) header.classList.add('scrolled');
     } else {
       if (header.classList.contains('scrolled')) header.classList.remove('scrolled');
     }
 
-    // Header hide on scroll down (só muda se direção REALMENTE mudou, evita flicker)
     if (s > 80 && direction === 1 && lastDirection !== 1) {
       if (!headerHidden) {
         header.classList.add('hidden');
@@ -3443,13 +3441,11 @@ em { font-style: italic; }
       headerHidden = false;
     }
 
-    // Back to top
     if (btt) {
       if (s > 600 && !bttShown) { btt.classList.add('show'); bttShown = true; }
       else if (s <= 600 && bttShown) { btt.classList.remove('show'); bttShown = false; }
     }
 
-    // Sticky CTA mobile (aparece depois do hero, esconde no footer)
     if (stickyCta && heroEl && footerEl && isMobileLayout) {
       var heroRect = heroEl.getBoundingClientRect();
       var footerRect = footerEl.getBoundingClientRect();
@@ -3487,7 +3483,6 @@ em { font-style: italic; }
     });
   }
 
-  // Inicializa estado
   onScroll();
 
   // Mobile menu
