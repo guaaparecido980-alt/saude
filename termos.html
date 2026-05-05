@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#5D0A1B">
+
+  <title>Termos de Uso · Velmora</title>
+  <meta name="description" content="Termos de Uso da Velmora — regras de uso do site, condições de compra, direito de arrependimento, garantia e responsabilidades.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://velmora-saude.com.br/termos.html">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/webp" sizes="32x32" href="favicon-32x32.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Manrope:wght@300;400;500;600;700;800&display=swap">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+:root {
+  --bg: #08030A;
+  --bg-soft: #0F0508;
+  --bg-card: #18090E;
+  --bg-card-hover: #200B12;
+
+  --red-deep: #5D0A1B;
+  --red-blood: #8A0426;
+  --red-ruby: #B1042A;
+  --red-bright: #E11D2C;
+  --red-glow: rgba(225, 29, 44, 0.35);
+
+  --gold: #E8C77E;
+  --gold-deep: #B8954A;
+  --gold-light: #F5D89A;
+
+  --text: #F4ECEB;
+  --text-soft: #C9BBB9;
+  --text-muted: #A0A0A0;
+  --text-faint: #5A4F4D;
+
+  --line: rgba(244, 236, 235, 0.07);
+  --line-strong: rgba(244, 236, 235, 0.14);
+  --line-gold: rgba(232, 199, 126, 0.22);
+
+  --font-serif: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-sans: 'Manrope', system-ui, sans-serif;
+
+  --container: 880px;
+  --r-md: 14px;
+  --r-lg: 22px;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(232, 199, 126, 0.3);
+  transition: color .25s, border-color .25s;
+}
+a:hover {
+  color: var(--gold-light);
+  border-color: var(--gold-light);
+}
+
+img, svg { max-width: 100%; display: block; }
+ul, ol { list-style: none; }
+
+::selection { background: var(--red-ruby); color: #fff; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--red-deep); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--red-ruby); }
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* === HEADER === */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(8, 3, 10, 0.92);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border-bottom: 1px solid var(--line);
+}
+.header__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  height: 78px;
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--gold);
+  border: none;
+}
+.logo:hover { color: var(--gold-light); }
+.logo__mark {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 8px rgba(232, 199, 126, 0.18))
+          drop-shadow(0 0 12px rgba(225, 29, 44, 0.12));
+  transition: transform .4s cubic-bezier(.16,.84,.44,1);
+}
+.logo:hover .logo__mark {
+  transform: scale(1.05) rotate(-2deg);
+}
+.logo__mark picture, .logo__mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.logo__text { display: flex; flex-direction: column; line-height: 1; }
+.logo__name {
+  font-family: var(--font-serif);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: 2.4px;
+  color: var(--gold);
+}
+.logo__tag {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  margin-top: 4px;
+}
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  border-radius: 100px;
+  border: 1px solid var(--line-strong);
+  color: var(--text);
+  transition: all .3s;
+  border-bottom: 1px solid var(--line-strong);
+}
+.btn-back:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(232, 199, 126, 0.04);
+}
+
+/* === HERO === */
+.legal-hero {
+  position: relative;
+  padding: 80px 0 60px;
+  overflow: hidden;
+  background: var(--bg);
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+.legal-hero__glow {
+  position: absolute;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--red-bright) 0%, transparent 65%);
+  opacity: .2;
+  filter: blur(100px);
+  pointer-events: none;
+}
+.legal-hero .container { position: relative; z-index: 1; }
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 22px;
+}
+.eyebrow__dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 12px var(--gold);
+}
+.legal-hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(38px, 5.5vw, 60px);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.legal-hero h1 em {
+  font-style: italic;
+  background: linear-gradient(135deg, #FF6B7A 0%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.legal-hero__sub {
+  font-size: 16px;
+  color: var(--text-soft);
+  max-width: 560px;
+  margin: 0 auto 28px;
+}
+.legal-hero__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: rgba(232, 199, 126, 0.06);
+  border: 1px solid var(--line-gold);
+  border-radius: 100px;
+  font-size: 12px;
+  color: var(--gold);
+  letter-spacing: 0.5px;
+}
+.legal-hero__meta strong { color: var(--gold-light); font-weight: 600; }
+
+/* === CONTEÚDO === */
+.legal-content {
+  padding: 70px 0 90px;
+  background: var(--bg-soft);
+}
+.legal-content section {
+  margin-bottom: 56px;
+  scroll-margin-top: 100px;
+}
+.legal-content section:last-child { margin-bottom: 0; }
+.legal-content h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 3.4vw, 34px);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 22px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+.legal-content h2 .num {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.7em;
+  font-weight: 500;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.legal-content h3 {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gold);
+  margin: 28px 0 14px;
+  letter-spacing: 0.3px;
+}
+.legal-content p {
+  font-size: 15.5px;
+  color: var(--text-soft);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.legal-content p:last-child { margin-bottom: 0; }
+.legal-content strong { color: var(--text); font-weight: 600; }
+.legal-content ul, .legal-content ol {
+  margin: 14px 0 20px 0;
+  padding-left: 0;
+}
+.legal-content ul li, .legal-content ol li {
+  font-size: 15.5px;
+  color: var(--text-soft);
+  line-height: 1.7;
+  margin-bottom: 12px;
+  padding-left: 28px;
+  position: relative;
+}
+.legal-content ul li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 13px;
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(232, 199, 126, 0.4);
+}
+.legal-content ol { counter-reset: olcount; }
+.legal-content ol li {
+  counter-increment: olcount;
+  padding-left: 32px;
+}
+.legal-content ol li::before {
+  content: counter(olcount) ".";
+  position: absolute;
+  left: 4px;
+  top: 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--gold);
+  font-size: 17px;
+}
+
+/* Card destaque */
+.card {
+  padding: 26px 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  margin: 22px 0;
+}
+.card--gold {
+  border: 1px solid var(--line-gold);
+  background: linear-gradient(135deg, rgba(232, 199, 126, 0.04) 0%, rgba(8, 3, 10, 0.3) 100%);
+}
+.card--red {
+  border-left: 3px solid var(--red-bright);
+  background: rgba(177, 4, 42, 0.06);
+}
+.card h3 { margin-top: 0; }
+
+/* Tabela */
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: var(--bg-card);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  font-size: 14px;
+}
+.legal-table thead {
+  background: rgba(232, 199, 126, 0.05);
+  border-bottom: 1px solid var(--line-gold);
+}
+.legal-table th {
+  text-align: left;
+  padding: 14px 18px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.legal-table td {
+  padding: 14px 18px;
+  color: var(--text-soft);
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  line-height: 1.55;
+}
+.legal-table tr:last-child td { border-bottom: none; }
+.legal-table td strong { color: var(--text); }
+
+/* Sumário */
+.toc {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 28px 30px;
+  margin-bottom: 56px;
+}
+.toc__title {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+.toc ol {
+  margin: 0;
+  padding-left: 0;
+  counter-reset: tocount;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 28px;
+}
+.toc ol li {
+  counter-increment: tocount;
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.toc ol li::before {
+  content: counter(tocount) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 15px;
+}
+.toc ol li a {
+  color: var(--text-soft);
+  border: none;
+  padding: 7px 0;
+  display: block;
+  transition: color .25s;
+}
+.toc ol li a:hover { color: var(--gold); }
+
+/* === FOOTER === */
+.footer {
+  padding: 50px 0 30px;
+  background: #050203;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+.footer__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  border: none;
+}
+.footer__brand .logo__mark { width: 44px; height: 44px; }
+.footer__brand .logo__name { font-size: 18px; }
+.footer__brand .logo__tag { font-size: 8.5px; }
+.footer__contact {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto 24px;
+}
+.footer__contact a { color: var(--gold); }
+.footer__nav {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  padding: 22px 0;
+  margin-bottom: 22px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.footer__nav a {
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  border: none;
+  font-weight: 500;
+}
+.footer__nav a:hover { color: var(--gold); }
+.footer__copy {
+  font-size: 11px;
+  color: var(--text-faint);
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .header__inner { height: 64px; gap: 10px; }
+  .logo__mark { width: 40px; height: 40px; }
+  .logo__name { font-size: 17px; letter-spacing: 2px; }
+  .logo__tag { font-size: 8px; }
+  .btn-back { padding: 9px 16px; font-size: 11px; }
+  .btn-back svg { display: none; }
+  .legal-hero { padding: 50px 0 40px; }
+  .legal-content { padding: 50px 0 70px; }
+  .legal-content h2 { font-size: 24px; gap: 10px; }
+  .legal-content section { margin-bottom: 42px; }
+  .toc ol { grid-template-columns: 1fr; }
+  .legal-table { font-size: 13px; }
+  .legal-table th, .legal-table td { padding: 12px 14px; }
+  .footer__nav { gap: 18px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header__inner">
+    <a href="index.html" class="logo" aria-label="Velmora · Voltar ao site">
+      <span class="logo__mark" aria-hidden="true">
+        <picture>
+          <source srcset="logo-velmora.webp" type="image/webp">
+          <img src="logo-velmora.png" alt="Logo Velmora" width="100" height="100" loading="eager" decoding="async">
+        </picture>
+      </span>
+      <span class="logo__text">
+        <span class="logo__name">VELMORA</span>
+        <span class="logo__tag">Saúde, Energia &amp; Desejo</span>
+      </span>
+    </a>
+    <a href="index.html" class="btn-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Voltar ao site
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="legal-hero">
+  <div class="legal-hero__glow" aria-hidden="true"></div>
+  <div class="container">
+    <span class="eyebrow"><span class="eyebrow__dot"></span> Regras claras · Sem letra miúda</span>
+    <h1>Termos de <em>Uso</em></h1>
+    <p class="legal-hero__sub">
+      Estas são as regras que regem o uso do site velmora-saude.com.br e a relação comercial entre você e a Velmora. Leia com atenção antes de comprar — qualquer dúvida, fale com a gente.
+    </p>
+    <div class="legal-hero__meta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      Última atualização: <strong>Maio de 2026</strong>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEÚDO -->
+<main class="legal-content">
+  <div class="container">
+
+    <!-- SUMÁRIO -->
+    <nav class="toc" aria-label="Sumário">
+      <p class="toc__title">Sumário</p>
+      <ol>
+        <li><a href="#aceitacao">Aceitação dos termos</a></li>
+        <li><a href="#sobre">Sobre a Velmora</a></li>
+        <li><a href="#produto">Sobre o produto QUERO+</a></li>
+        <li><a href="#cadastro">Cadastro e atendimento</a></li>
+        <li><a href="#compra">Como funciona a compra</a></li>
+        <li><a href="#pagamento">Formas de pagamento</a></li>
+        <li><a href="#entrega">Entrega e prazos</a></li>
+        <li><a href="#arrependimento">Direito de arrependimento</a></li>
+        <li><a href="#trocas">Trocas, devoluções e garantia</a></li>
+        <li><a href="#responsabilidades">Responsabilidades do usuário</a></li>
+        <li><a href="#propriedade">Propriedade intelectual</a></li>
+        <li><a href="#limitacao">Limitação de responsabilidade</a></li>
+        <li><a href="#alteracoes">Alterações nos termos</a></li>
+        <li><a href="#foro">Lei aplicável e foro</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ol>
+    </nav>
+
+    <!-- 1 -->
+    <section id="aceitacao">
+      <h2><span class="num">01</span> Aceitação dos termos</h2>
+      <p>Ao acessar e utilizar o site <a href="https://velmora-saude.com.br">velmora-saude.com.br</a>, ao realizar uma compra ou ao iniciar conversa nos canais de atendimento da Velmora, você declara ter lido, compreendido e concordado com estes Termos de Uso e com nossa <a href="privacidade.html">Política de Privacidade</a>.</p>
+      <p>Se você <strong>não concorda</strong> com qualquer parte destes Termos, por favor não utilize o site nem realize compras. Sua continuidade no uso significa aceitação integral.</p>
+      <div class="card card--gold">
+        <p style="margin:0;"><strong>Em uma frase:</strong> usar o site é aceitar essas regras. Se algo aqui não te servir, conversa com a gente antes de comprar — atendimento humano via WhatsApp.</p>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section id="sobre">
+      <h2><span class="num">02</span> Sobre a Velmora</h2>
+      <p>A <strong>Velmora</strong> é uma marca de produtos de saúde, energia e bem-estar com sede em <strong>Curitiba/PR — Brasil</strong>. Operamos no formato pessoa física, comercializando produtos diretamente ao consumidor pelos canais oficiais informados ao final destes Termos.</p>
+      <p>O atendimento, a venda e o pós-venda são feitos exclusivamente pelos nossos canais oficiais — WhatsApp, e-mail e o site. Desconfie de qualquer pessoa ou perfil que ofereça produtos Velmora fora desses canais.</p>
+    </section>
+
+    <!-- 3 -->
+    <section id="produto">
+      <h2><span class="num">03</span> Sobre o produto QUERO+</h2>
+      <p>O <strong>QUERO+</strong> é um <strong>suplemento alimentar em pó</strong>, sabor frutas vermelhas, regulamentado pela Agência Nacional de Vigilância Sanitária (<strong>ANVISA — RDC 243/2018</strong>).</p>
+
+      <div class="card card--red">
+        <h3>⚠ Avisos importantes</h3>
+        <ul style="margin-top:8px; margin-bottom:0;">
+          <li>O produto <strong>não previne, diagnostica, trata ou cura doenças</strong>.</li>
+          <li>Não substitui orientação médica, alimentação variada e equilibrada nem hábitos saudáveis.</li>
+          <li>Resultados podem variar de pessoa para pessoa — não há promessa de efeito específico.</li>
+          <li>Recomendado para <strong>adultos a partir de 19 anos</strong>.</li>
+          <li>Não recomendado para gestantes, lactantes e pessoas com condições clínicas sem acompanhamento profissional.</li>
+          <li>Pessoas sensíveis a estimulantes (cafeína do guaraná, capsaicina da pimenta) devem consultar profissional de saúde antes do uso.</li>
+        </ul>
+      </div>
+
+      <p>Toda informação sobre composição, modo de uso, restrições e alergênicos está disponível no <strong>rótulo oficial do produto</strong>. Em caso de dúvida, consulte sempre o rótulo e/ou um profissional de saúde.</p>
+    </section>
+
+    <!-- 4 -->
+    <section id="cadastro">
+      <h2><span class="num">04</span> Cadastro e atendimento</h2>
+      <p>Não exigimos cadastro prévio para navegar no site. Seus dados são solicitados apenas no momento da compra ou quando você inicia o atendimento via WhatsApp ou e-mail.</p>
+      <p>Ao fornecer suas informações, você se compromete a:</p>
+      <ul>
+        <li>Fornecer dados <strong>verdadeiros, completos e atualizados</strong>.</li>
+        <li>Atualizar suas informações sempre que houver alteração relevante (mudança de endereço, telefone etc.).</li>
+        <li>Não usar identidade falsa ou fornecer dados de terceiros sem autorização expressa.</li>
+        <li>Manter o sigilo dos dados de comunicação utilizados para receber pedidos e atendimento.</li>
+      </ul>
+      <p>O tratamento dos seus dados pessoais segue o disposto na <a href="privacidade.html">Política de Privacidade</a>, em conformidade com a LGPD.</p>
+    </section>
+
+    <!-- 5 -->
+    <section id="compra">
+      <h2><span class="num">05</span> Como funciona a compra</h2>
+      <p>O processo de compra na Velmora é totalmente online e segue os passos abaixo:</p>
+      <ol>
+        <li>Você escolhe um dos kits disponíveis na página de oferta e clica em <strong>"Comprar agora"</strong>.</li>
+        <li>É redirecionado(a) para o ambiente seguro do gateway de pagamento (parceiro certificado).</li>
+        <li>Preenche seus dados de entrega e seleciona a forma de pagamento.</li>
+        <li>Conclui o pagamento — Pix tem confirmação imediata, cartão pode levar alguns minutos, boleto leva até 3 dias úteis para compensar.</li>
+        <li>Você recebe a confirmação do pedido por e-mail e/ou WhatsApp.</li>
+        <li>Após confirmação do pagamento, postamos seu pedido em até 5 dias úteis.</li>
+      </ol>
+      <p>Antes de comprar, você pode <strong>tirar dúvidas no WhatsApp</strong> — sem compromisso. Atendimento feito por gente, não por bot.</p>
+
+      <h3>5.1 Disponibilidade e preços</h3>
+      <p>Os preços e a disponibilidade dos produtos são informados no site e podem ser alterados sem aviso prévio. O preço válido é o que está vigente no momento da finalização do pedido.</p>
+      <p>Em caso de erro grosseiro de preço (preço evidentemente incompatível com o valor de mercado, decorrente de falha técnica), reservamo-nos o direito de não validar o pedido, comunicando o cliente para correção ou cancelamento sem ônus.</p>
+
+      <h3>5.2 Cancelamento de pedido por nossa parte</h3>
+      <p>Podemos, em casos excepcionais, cancelar pedidos por motivos como: indícios de fraude, dados de cadastro inconsistentes, indisponibilidade de estoque ou problema na confirmação de pagamento. Nesses casos, o valor pago é integralmente devolvido pelo mesmo meio utilizado na compra.</p>
+    </section>
+
+    <!-- 6 -->
+    <section id="pagamento">
+      <h2><span class="num">06</span> Formas de pagamento</h2>
+      <p>Aceitamos as seguintes formas de pagamento, processadas por <strong>gateway de pagamento certificado</strong>:</p>
+      <ul>
+        <li><strong>Pix</strong> — confirmação instantânea após pagamento.</li>
+        <li><strong>Cartão de crédito</strong> — possibilidade de parcelamento conforme regras do gateway.</li>
+        <li><strong>Boleto bancário</strong> — compensação em até 3 dias úteis.</li>
+      </ul>
+      <p>Os <strong>dados de pagamento (número de cartão, CVV, chave Pix)</strong> são processados diretamente pelo gateway e <strong>não são armazenados em nossos sistemas</strong>. Toda comunicação é feita em ambiente criptografado (HTTPS).</p>
+      <p>A confirmação do pagamento é condição para o início do processamento e envio do pedido.</p>
+    </section>
+
+    <!-- 7 -->
+    <section id="entrega">
+      <h2><span class="num">07</span> Entrega e prazos</h2>
+
+      <h3>7.1 Postagem</h3>
+      <p>Postamos seu pedido em <strong>até 5 dias úteis</strong> após a confirmação do pagamento. Em casos de alta demanda ou feriados prolongados, o prazo pode ser estendido — nesses casos, comunicamos o cliente.</p>
+
+      <h3>7.2 Prazo de entrega</h3>
+      <p>O prazo de entrega depende da modalidade escolhida e da região do destinatário, e é informado no checkout antes da finalização do pedido. Estimativas médias:</p>
+      <ul>
+        <li><strong>Sul e Sudeste:</strong> 5 a 10 dias úteis</li>
+        <li><strong>Centro-Oeste e Nordeste:</strong> 7 a 12 dias úteis</li>
+        <li><strong>Norte:</strong> 10 a 15 dias úteis</li>
+      </ul>
+      <p>Esses prazos são <strong>estimativas das transportadoras</strong> (Correios e parceiros) e podem variar por motivos externos: greves, condições climáticas, restrições logísticas regionais. A Velmora acompanha cada pedido e mantém o cliente informado em casos de atraso.</p>
+
+      <h3>7.3 Rastreamento</h3>
+      <p>Você recebe o <strong>código de rastreio</strong> pelo WhatsApp ou e-mail assim que o pedido for postado.</p>
+
+      <h3>7.4 Endereço incorreto</h3>
+      <p>É responsabilidade do cliente fornecer endereço completo e correto. Pedidos devolvidos por endereço incorreto, ausência do destinatário ou recusa do recebimento podem gerar custos adicionais para reenvio, comunicados ao cliente antes da nova postagem.</p>
+
+      <h3>7.5 Frete</h3>
+      <p>O valor do frete é calculado com base no CEP de destino e exibido no checkout. Promoções de <strong>frete grátis</strong> são informadas no site e válidas para regiões e kits específicos.</p>
+    </section>
+
+    <!-- 8 -->
+    <section id="arrependimento">
+      <h2><span class="num">08</span> Direito de arrependimento</h2>
+      <p>Conforme o <strong>artigo 49 do Código de Defesa do Consumidor (Lei 8.078/1990)</strong>, em compras realizadas <strong>fora do estabelecimento comercial</strong> (como neste site), você tem direito a desistir do pedido em até <strong>7 (sete) dias corridos</strong> contados a partir do recebimento do produto.</p>
+
+      <h3>Como exercer o direito de arrependimento</h3>
+      <ol>
+        <li>Entre em contato pelo WhatsApp <a href="https://wa.me/5541999870033" target="_blank" rel="noopener">(41) 99987-0033</a> ou e-mail <a href="mailto:contato@velmora-saude.com.br">contato@velmora-saude.com.br</a> dentro do prazo de 7 dias do recebimento.</li>
+        <li>Informe o número do pedido, motivo da desistência e dados para devolução do valor.</li>
+        <li>Devolva o produto <strong>em sua embalagem original, lacrado e sem violação</strong>.</li>
+        <li>Após o recebimento e conferência, o valor pago é restituído integralmente, incluindo o frete original.</li>
+      </ol>
+
+      <div class="card card--gold">
+        <p style="margin:0;"><strong>Custos da devolução:</strong> conforme entendimento consolidado do CDC, o custo do envio de retorno é por nossa conta quando o cliente exerce direito de arrependimento. Coordenamos a logística reversa pelos Correios.</p>
+      </div>
+    </section>
+
+    <!-- 9 -->
+    <section id="trocas">
+      <h2><span class="num">09</span> Trocas, devoluções e garantia de satisfação</h2>
+
+      <h3>9.1 Garantia legal</h3>
+      <p>Você tem direito à garantia legal prevista no CDC: <strong>30 dias para produtos não duráveis</strong> (como suplementos alimentares), contados a partir do recebimento, em caso de vícios aparentes ou de fácil constatação (art. 26 do CDC).</p>
+      <p>Para vícios ocultos (que não podem ser detectados imediatamente), o prazo conta a partir da descoberta do problema.</p>
+
+      <h3>9.2 Garantia de satisfação Velmora</h3>
+      <p>Além da garantia legal, oferecemos <strong>garantia de satisfação de 30 dias</strong>: se você usou o produto conforme as orientações e não ficou satisfeito(a), entre em contato pelo SAC dentro de 30 dias do recebimento para abrirmos análise da sua solicitação.</p>
+
+      <h3>9.3 Produto avariado, danificado ou em desacordo</h3>
+      <p>Se receber o produto avariado, com prazo de validade vencido, lacre violado ou em desacordo com o pedido, entre em contato em até <strong>72 horas</strong> do recebimento, com fotos do produto e da embalagem. Resolveremos com troca ou reembolso, sem custo para você.</p>
+
+      <h3>9.4 Como solicitar troca ou devolução</h3>
+      <ol>
+        <li>Contate-nos pelo WhatsApp ou e-mail informando o número do pedido e o motivo.</li>
+        <li>Aguarde a orientação sobre o procedimento (logística reversa via Correios, na maioria dos casos).</li>
+        <li>Devolva o produto na embalagem original, com nota fiscal/comprovante.</li>
+        <li>Após análise, processaremos a troca, reembolso ou substituição em até 7 dias úteis.</li>
+      </ol>
+
+      <h3>9.5 O que não é coberto</h3>
+      <ul>
+        <li>Produtos com lacre violado por uso indevido (quando o motivo não é vício/avaria).</li>
+        <li>Produtos danificados por mau armazenamento após o recebimento (calor extremo, umidade, contato com químicos).</li>
+        <li>Produtos com prazo de validade expirado por permanência prolongada do cliente sem uso.</li>
+      </ul>
+    </section>
+
+    <!-- 10 -->
+    <section id="responsabilidades">
+      <h2><span class="num">10</span> Responsabilidades do usuário</h2>
+      <p>Ao usar o site e os produtos da Velmora, você se compromete a:</p>
+      <ul>
+        <li>Utilizar o site para fins lícitos e em conformidade com a legislação brasileira.</li>
+        <li>Não realizar tentativas de invasão, engenharia reversa, exploração de vulnerabilidades, scraping massivo ou qualquer atividade que prejudique o funcionamento do site.</li>
+        <li>Não publicar, transmitir ou compartilhar conteúdo ofensivo, ilegal, difamatório ou que viole direitos de terceiros nas interações conosco.</li>
+        <li>Não se passar por outra pessoa nem fornecer dados falsos.</li>
+        <li>Respeitar as orientações de uso do produto descritas no rótulo e neste site.</li>
+        <li>Consultar profissional de saúde em caso de dúvidas sobre adequação do produto à sua condição clínica.</li>
+        <li>Manter atualizados seus dados de contato e entrega.</li>
+      </ul>
+      <p>O descumprimento destas obrigações pode resultar no cancelamento de pedidos e/ou bloqueio de novas compras, sem prejuízo das medidas legais cabíveis.</p>
+    </section>
+
+    <!-- 11 -->
+    <section id="propriedade">
+      <h2><span class="num">11</span> Propriedade intelectual</h2>
+      <p>Todo o conteúdo do site velmora-saude.com.br — incluindo textos, imagens, fotografias, vídeos, ilustrações, logotipo, marca <strong>Velmora</strong>, identidade visual, código-fonte, layout e elementos de design — é de <strong>propriedade exclusiva da Velmora</strong> ou está licenciado para nosso uso.</p>
+      <p>É <strong>vedado</strong>, sem autorização prévia e por escrito:</p>
+      <ul>
+        <li>Reproduzir, copiar, modificar, distribuir, vender ou explorar comercialmente qualquer parte do conteúdo.</li>
+        <li>Usar a marca ou identidade visual da Velmora em produtos, sites ou comunicações de terceiros.</li>
+        <li>Criar perfis, sites ou materiais que sugiram associação ou parceria não autorizada com a Velmora.</li>
+        <li>Realizar engenharia reversa, descompilação ou tentativa de extração de código-fonte do site.</li>
+      </ul>
+      <p>Violações de propriedade intelectual podem ensejar medidas judiciais, civis e criminais, conforme a legislação aplicável (Lei 9.279/1996 — Propriedade Industrial; Lei 9.610/1998 — Direitos Autorais).</p>
+    </section>
+
+    <!-- 12 -->
+    <section id="limitacao">
+      <h2><span class="num">12</span> Limitação de responsabilidade</h2>
+      <p>A Velmora compromete-se a entregar produtos de qualidade, com composição declarada e em conformidade com as normas da ANVISA. Contudo, dentro dos limites permitidos pela lei brasileira, não nos responsabilizamos por:</p>
+      <ul>
+        <li><strong>Resultados individuais</strong> — suplementos atuam de forma diferente em cada organismo e não há garantia de efeito específico.</li>
+        <li><strong>Uso inadequado do produto</strong> — uso em desacordo com as orientações de rótulo, exposição a calor/umidade, vencimento por estoque prolongado pelo cliente.</li>
+        <li><strong>Reações em pessoas com restrições</strong> — gestantes, lactantes, menores de 19 anos, pessoas hipertensas, sensíveis a estimulantes ou com condições clínicas que não consultaram profissional antes do uso.</li>
+        <li><strong>Atrasos em transportadoras</strong> — greves, condições climáticas, restrições logísticas. Acompanhamos cada caso e apoiamos o cliente, mas o transporte é executado por terceiros.</li>
+        <li><strong>Indisponibilidade temporária do site</strong> — falhas no provedor de hospedagem, manutenções programadas ou ataques cibernéticos.</li>
+        <li><strong>Conteúdo de sites externos</strong> linkados a partir do nosso site (Google, Meta, ANPD etc.).</li>
+      </ul>
+      <p>Nenhuma cláusula deste documento limita direitos garantidos pelo Código de Defesa do Consumidor para hipóteses de vício, fato do produto ou responsabilidade do fornecedor.</p>
+    </section>
+
+    <!-- 13 -->
+    <section id="alteracoes">
+      <h2><span class="num">13</span> Alterações nos termos</h2>
+      <p>A Velmora pode alterar estes Termos de Uso a qualquer momento, para refletir mudanças nas práticas comerciais, em ferramentas utilizadas ou em exigências legais. A versão mais recente estará sempre disponível nesta página, com a data de atualização no topo.</p>
+      <p>Alterações significativas serão comunicadas com antecedência razoável por meio de aviso no site ou por mensagem direta (WhatsApp/e-mail) aos clientes ativos.</p>
+      <p>O uso continuado do site após a publicação de alterações implica aceitação dos novos termos. Se você não concordar com mudanças relevantes, deve interromper o uso do site.</p>
+    </section>
+
+    <!-- 14 -->
+    <section id="foro">
+      <h2><span class="num">14</span> Lei aplicável e foro</h2>
+      <p>Estes Termos de Uso são regidos pelas <strong>leis da República Federativa do Brasil</strong>, em especial:</p>
+      <ul>
+        <li>Lei 8.078/1990 — Código de Defesa do Consumidor (CDC)</li>
+        <li>Lei 12.965/2014 — Marco Civil da Internet</li>
+        <li>Lei 13.709/2018 — Lei Geral de Proteção de Dados (LGPD)</li>
+        <li>Resolução RDC 243/2018 da ANVISA — Suplementos Alimentares</li>
+        <li>Lei 9.279/1996 e Lei 9.610/1998 — Propriedade Industrial e Direitos Autorais</li>
+      </ul>
+      <p>Para dirimir quaisquer controvérsias decorrentes destes Termos, fica eleito o foro do <strong>domicílio do consumidor</strong>, conforme garantia prevista no art. 101, I, do CDC. Antes de qualquer medida judicial, comprometemo-nos a buscar solução amigável pelos canais oficiais de atendimento.</p>
+    </section>
+
+    <!-- 15 -->
+    <section id="contato">
+      <h2><span class="num">15</span> Contato</h2>
+      <p>Qualquer dúvida sobre estes Termos, sobre seus pedidos ou sobre os produtos, fale com a gente:</p>
+
+      <div class="card card--gold">
+        <h3>Velmora — Atendimento oficial</h3>
+        <p style="margin-bottom:8px;"><strong>WhatsApp:</strong> <a href="https://wa.me/5541999870033" target="_blank" rel="noopener">(41) 99987-0033</a></p>
+        <p style="margin-bottom:8px;"><strong>E-mail:</strong> <a href="mailto:contato@velmora-saude.com.br">contato@velmora-saude.com.br</a></p>
+        <p style="margin-bottom:8px;"><strong>Localização:</strong> Curitiba/PR — Brasil</p>
+        <p style="margin-bottom:0;"><strong>Horário de atendimento:</strong> segunda a sexta, das 9h às 18h (exceto feriados)</p>
+      </div>
+
+      <p>Atendimento humano, sem bot, sem fila. Tirar dúvida não é compromisso de compra — é parte do nosso serviço.</p>
+    </section>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <a href="index.html" class="footer__brand" aria-label="Velmora">
+      <span class="logo__mark" aria-hidden="true">
+        <picture>
+          <source srcset="logo-velmora.webp" type="image/webp">
+          <img src="logo-velmora.png" alt="Logo Velmora" width="100" height="100" loading="lazy" decoding="async">
+        </picture>
+      </span>
+      <span class="logo__text">
+        <span class="logo__name">VELMORA</span>
+        <span class="logo__tag">Saúde, Energia &amp; Desejo</span>
+      </span>
+    </a>
+    <p class="footer__contact">
+      Linha Velmora · Curitiba/PR · Brasil<br>
+      <a href="mailto:contato@velmora-saude.com.br">contato@velmora-saude.com.br</a> · <a href="https://wa.me/5541999870033" target="_blank" rel="noopener">(41) 99987-0033</a>
+    </p>
+    <nav class="footer__nav">
+      <a href="index.html">Site</a>
+      <a href="privacidade.html">Privacidade</a>
+      <a href="cookies.html">Cookies</a>
+      <a href="termos.html">Termos</a>
+      <a href="https://wa.me/5541999870033" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+    <p class="footer__copy">© <span id="year">2026</span> Velmora · Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
