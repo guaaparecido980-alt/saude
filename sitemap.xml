@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Página principal -->
+  <url>
+    <loc>https://velmora-saude.com.br/</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://velmora-saude.com.br/quero-mais.png</image:loc>
+      <image:title>QUERO+ Velmora — Bebida em pó sabor frutas vermelhas</image:title>
+      <image:caption>Suplemento alimentar em pó com ingredientes naturais</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://velmora-saude.com.br/quero-mais-lifestyle.jpg</image:loc>
+      <image:title>QUERO+ — Sabor que encanta, resultados que motivam</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://velmora-saude.com.br/og-image.jpg</image:loc>
+      <image:title>Velmora · QUERO+</image:title>
+    </image:image>
+  </url>
+
+  <!-- Privacidade -->
+  <url>
+    <loc>https://velmora-saude.com.br/privacidade.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Termos de Uso -->
+  <url>
+    <loc>https://velmora-saude.com.br/termos.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Trocas e Devoluções -->
+  <url>
+    <loc>https://velmora-saude.com.br/trocas.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Política de Cookies -->
+  <url>
+    <loc>https://velmora-saude.com.br/cookies.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+</urlset>

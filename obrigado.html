@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#5D0A1B">
+
+  <!-- noindex pra essa página NÃO aparecer no Google (é só pra quem comprou) -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>Obrigado pela sua compra · Velmora</title>
+  <meta name="description" content="Pedido confirmado! Em breve você receberá os detalhes do envio.">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/webp" sizes="32x32" href="favicon-32x32.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Manrope:wght@300;400;500;600;700;800&display=swap">
+
+  <!-- =================================================================== -->
+  <!-- META PIXEL — DISPARA EVENTO "PURCHASE" QUANDO ESSA PÁGINA CARREGAR  -->
+  <!-- IMPORTANTE: usa o MESMO Pixel ID do index.html                       -->
+  <!-- =================================================================== -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'COLOQUE_SEU_PIXEL_ID_AQUI');
+  fbq('track', 'PageView');
+
+  // EVENTO PURCHASE — pega valor da URL (?valor=335.70) ou usa default
+  (function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var valor = parseFloat(urlParams.get('valor')) || 0;
+    var produto = urlParams.get('produto') || 'QUERO+';
+    var kit = urlParams.get('kit') || 'kit';
+
+    fbq('track', 'Purchase', {
+      value: valor,
+      currency: 'BRL',
+      content_name: produto + ' · ' + kit,
+      content_type: 'product',
+      content_category: 'Suplemento Alimentar'
+    });
+  })();
+  </script>
+  <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=COLOQUE_SEU_PIXEL_ID_AQUI&ev=Purchase&noscript=1"/></noscript>
+
+  <!-- =================================================================== -->
+  <!-- GOOGLE ANALYTICS 4 — EVENTO "PURCHASE"                              -->
+  <!-- =================================================================== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+
+    // Evento de conversão GA4
+    (function() {
+      var urlParams = new URLSearchParams(window.location.search);
+      var valor = parseFloat(urlParams.get('valor')) || 0;
+      var kit = urlParams.get('kit') || 'kit';
+      var transactionId = urlParams.get('id') || 'TX-' + Date.now();
+
+      gtag('event', 'purchase', {
+        transaction_id: transactionId,
+        value: valor,
+        currency: 'BRL',
+        items: [{
+          item_id: 'quero-mais',
+          item_name: 'QUERO+ ' + kit,
+          item_category: 'Suplemento Alimentar',
+          item_brand: 'Velmora',
+          price: valor,
+          quantity: 1
+        }]
+      });
+    })();
+  </script>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+
+:root {
+  --bg: #08030A;
+  --bg-soft: #0F0508;
+  --bg-card: #18090E;
+
+  --red-deep: #5D0A1B;
+  --red-blood: #8A0426;
+  --red-bright: #E11D2C;
+  --red-glow: rgba(225, 29, 44, 0.35);
+
+  --gold: #E8C77E;
+  --gold-deep: #B8954A;
+  --gold-light: #F5D89A;
+
+  --green: #25D366;
+  --green-dark: #128C7E;
+
+  --text: #F4ECEB;
+  --text-soft: #C9BBB9;
+  --text-muted: #A0A0A0;
+
+  --line: rgba(244, 236, 235, 0.07);
+  --line-gold: rgba(232, 199, 126, 0.22);
+
+  --font-serif: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-sans: 'Manrope', system-ui, sans-serif;
+  --font-hand: 'Caveat', cursive;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Glow background */
+body::before {
+  content: '';
+  position: fixed;
+  top: -30%;
+  left: -10%;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--red-bright) 0%, transparent 65%);
+  opacity: 0.2;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+body::after {
+  content: '';
+  position: fixed;
+  bottom: -30%;
+  right: -10%;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--gold) 0%, transparent 65%);
+  opacity: 0.1;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  max-width: 720px;
+  width: 100%;
+  text-align: center;
+}
+
+/* === LOGO === */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 50px;
+  text-decoration: none;
+}
+.logo__mark {
+  width: 56px;
+  height: 56px;
+  filter: drop-shadow(0 2px 8px rgba(232, 199, 126, 0.18))
+          drop-shadow(0 0 12px rgba(225, 29, 44, 0.12));
+}
+.logo__mark img, .logo__mark picture {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.logo__text { display: flex; flex-direction: column; line-height: 1; align-items: flex-start; }
+.logo__name {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  color: var(--gold);
+}
+.logo__tag {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  margin-top: 4px;
+}
+
+/* === ÍCONE DE SUCESSO === */
+.success-icon {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 34px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.success-icon__circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-deep));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 20px 40px -10px rgba(232, 199, 126, 0.4),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -3px 8px rgba(0, 0, 0, 0.15);
+  animation: bounceIn .8s cubic-bezier(.34, 1.56, .64, 1);
+}
+.success-icon__circle svg {
+  width: 56px;
+  height: 56px;
+  color: var(--bg);
+  stroke-width: 3;
+  animation: drawCheck .6s ease-out .4s both;
+}
+@keyframes bounceIn {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes drawCheck {
+  0% { stroke-dashoffset: 100; opacity: 0; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+.success-icon__pulse {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  opacity: 0;
+  animation: pulse 2s ease-out infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+/* === HEADING === */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 22px;
+  animation: fadeUp .6s ease-out .6s both;
+}
+.eyebrow__dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 12px var(--gold);
+}
+h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 18px;
+  animation: fadeUp .7s ease-out .7s both;
+}
+h1 em {
+  font-style: italic;
+  background: linear-gradient(135deg, #FF6B7A 0%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.signature {
+  display: block;
+  font-family: var(--font-hand);
+  font-size: 32px;
+  color: var(--gold);
+  margin: -8px 0 12px;
+  transform: rotate(-3deg);
+  text-shadow: 0 4px 20px rgba(232, 199, 126, 0.3);
+  animation: fadeUp .8s ease-out .9s both;
+}
+.lead {
+  font-size: 17px;
+  color: var(--text-soft);
+  max-width: 540px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+  animation: fadeUp .7s ease-out .8s both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === STEPS NEXT === */
+.next-steps {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 36px 32px;
+  margin-bottom: 36px;
+  text-align: left;
+  animation: fadeUp .7s ease-out 1s both;
+}
+.next-steps__title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+.next-steps__title em {
+  font-style: italic;
+  color: var(--gold);
+}
+.step-list {
+  list-style: none;
+  display: grid;
+  gap: 16px;
+}
+.step-list li {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.step-list li:last-child { border-bottom: none; }
+.step-list__num {
+  width: 36px; height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-deep));
+  color: var(--bg);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 17px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.step-list__content strong {
+  display: block;
+  font-size: 15px;
+  color: var(--text);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.step-list__content span {
+  font-size: 13.5px;
+  color: var(--text-soft);
+  line-height: 1.55;
+}
+
+/* === CTA WHATSAPP === */
+.cta-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 36px;
+  background: var(--green);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 12px 30px -8px rgba(37, 211, 102, 0.45);
+  transition: transform .3s, box-shadow .3s, background .3s;
+  animation: fadeUp .7s ease-out 1.2s both;
+}
+.cta-wa:hover {
+  background: var(--green-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px -8px rgba(37, 211, 102, 0.6);
+}
+.cta-wa svg { width: 22px; height: 22px; }
+
+.help-text {
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--text-muted);
+  animation: fadeUp .7s ease-out 1.3s both;
+}
+.help-text a {
+  color: var(--gold);
+  text-decoration: underline;
+}
+.help-text a:hover { color: var(--gold-light); }
+
+/* === FOOTER === */
+.footer {
+  text-align: center;
+  padding: 30px 24px;
+  border-top: 1px solid var(--line);
+  font-size: 11.5px;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+}
+.footer a { color: var(--text-soft); margin: 0 12px; text-decoration: none; }
+.footer a:hover { color: var(--gold); }
+
+@media (max-width: 600px) {
+  main { padding: 40px 18px; }
+  .success-icon { width: 88px; height: 88px; margin-bottom: 28px; }
+  .success-icon__circle svg { width: 44px; height: 44px; }
+  h1 { font-size: clamp(32px, 9vw, 44px); }
+  .signature { font-size: 28px; }
+  .lead { font-size: 15.5px; margin-bottom: 32px; }
+  .next-steps { padding: 28px 22px; }
+  .next-steps__title { font-size: 22px; }
+  .cta-wa { padding: 16px 28px; font-size: 13px; }
+}
+</style>
+</head>
+
+<body>
+
+<main>
+  <div class="container">
+
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <span class="logo__mark" aria-hidden="true">
+        <picture>
+          <source srcset="logo-velmora.webp" type="image/webp">
+          <img src="logo-velmora.png" alt="Velmora" width="100" height="100">
+        </picture>
+      </span>
+      <span class="logo__text">
+        <span class="logo__name">VELMORA</span>
+        <span class="logo__tag">Saúde, Energia &amp; Desejo</span>
+      </span>
+    </a>
+
+    <!-- Ícone de sucesso animado -->
+    <div class="success-icon">
+      <div class="success-icon__pulse"></div>
+      <div class="success-icon__circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12l5 5L20 7" style="stroke-dasharray: 100;"/>
+        </svg>
+      </div>
+    </div>
+
+    <span class="eyebrow"><span class="eyebrow__dot"></span> Pedido confirmado</span>
+
+    <h1>Obrigado pela <em>sua confiança.</em></h1>
+    <span class="signature">~ bem-vindo(a) à Velmora ~</span>
+
+    <p class="lead">
+      Recebemos seu pedido e em breve vamos enviar todos os detalhes pelo WhatsApp e por e-mail. Seu ritual diário começa a chegar em casa.
+    </p>
+
+    <!-- Próximos passos -->
+    <div class="next-steps">
+      <h2 class="next-steps__title">O que <em>acontece agora</em></h2>
+      <ol class="step-list">
+        <li>
+          <span class="step-list__num">1</span>
+          <div class="step-list__content">
+            <strong>Confirmação por WhatsApp e e-mail</strong>
+            <span>Você recebe um resumo do pedido em até alguns minutos. Confere se tá tudo certo (endereço, kit, contato).</span>
+          </div>
+        </li>
+        <li>
+          <span class="step-list__num">2</span>
+          <div class="step-list__content">
+            <strong>Postagem em até 5 dias úteis</strong>
+            <span>Preparamos seu pedido com cuidado e mandamos pelos Correios. Assim que postarmos, você recebe o código de rastreio.</span>
+          </div>
+        </li>
+        <li>
+          <span class="step-list__num">3</span>
+          <div class="step-list__content">
+            <strong>Entrega em 5 a 15 dias úteis</strong>
+            <span>O prazo varia por região. Acompanhamos cada pedido e mantemos você informado(a) — qualquer atraso, falamos antes.</span>
+          </div>
+        </li>
+        <li>
+          <span class="step-list__num">4</span>
+          <div class="step-list__content">
+            <strong>Comece seu ritual</strong>
+            <span>1 dosador (7g) em 100-200ml de água, uma vez ao dia. No momento que combinar com sua rotina.</span>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <!-- CTA WhatsApp -->
+    <a href="https://wa.me/5541999870033?text=Ol%C3%A1!%20Acabei%20de%20fazer%20meu%20pedido%20do%20QUERO%2B%20e%20queria%20confirmar." target="_blank" rel="noopener" class="cta-wa">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91A9.86 9.86 0 0 0 12.04 2zm0 18.15h-.01a8.18 8.18 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.21 8.21 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.23-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.69 8.23-8.23 8.23z"/></svg>
+      Confirmar pedido no WhatsApp
+    </a>
+
+    <p class="help-text">
+      Dúvida ou problema com o pedido? Fala com a gente em <a href="https://wa.me/5541999870033" target="_blank" rel="noopener">(41) 99987-0033</a> ou <a href="mailto:contato@velmora-saude.com.br">contato@velmora-saude.com.br</a>.
+    </p>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <p>
+    <a href="index.html">Voltar ao site</a> ·
+    <a href="trocas.html">Trocas e devoluções</a> ·
+    <a href="privacidade.html">Privacidade</a>
+  </p>
+  <p style="margin-top: 12px;">© <span id="year">2026</span> Velmora · Curitiba/PR</p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

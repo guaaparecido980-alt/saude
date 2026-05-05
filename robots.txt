@@ -1,0 +1,16 @@
+# robots.txt — Velmora
+# https://velmora-saude.com.br
+
+User-agent: *
+Allow: /
+
+# Bloqueia páginas/arquivos que não precisam ser indexados
+Disallow: /obrigado.html
+Disallow: /CNAME
+Disallow: /*.webmanifest$
+
+# Sitemap
+Sitemap: https://velmora-saude.com.br/sitemap.xml
+
+# Crawl delay pra evitar sobrecarga (opcional, conservador)
+Crawl-delay: 1
