@@ -1635,6 +1635,10 @@ em { font-style: italic; }
   width: fit-content;
 }
 .offer__guarantee svg { color: var(--gold); flex-shrink: 0; }
+.offer__guarantee svg.offer__guarantee-shield {
+  color: #2EAD52;
+  filter: drop-shadow(0 0 8px rgba(46, 173, 82, 0.4));
+}
 .offer__guarantee strong { color: var(--gold); font-weight: 600; }
 
 /* === TRUST === */
@@ -3037,7 +3041,11 @@ em { font-style: italic; }
     </div>
 
     <p class="offer__guarantee">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="offer__guarantee-shield">
+        <path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/>
+        <circle cx="12" cy="12" r="3.5"/>
+        <path d="m10.5 12 1 1 2-2"/>
+      </svg>
       <span><strong>Compra 100% segura.</strong> Pagamento processado por gateway certificado. Garantia de satisfação 30 dias — não funcionou? Devolvemos seu dinheiro.</span>
     </p>
   </div>
