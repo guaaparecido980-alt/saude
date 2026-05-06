@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#5D0A1B">
+
+  <title>Trocas e Devoluções · Velmora</title>
+  <meta name="description" content="Política de Trocas e Devoluções da Velmora — direito de arrependimento (7 dias), garantia de satisfação (30 dias), produto avariado e como solicitar reembolso.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://velmora-saude.com.br/trocas.html">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/webp" sizes="32x32" href="favicon-32x32.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Manrope:wght@300;400;500;600;700;800&display=swap">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+:root {
+  --bg: #08030A;
+  --bg-soft: #0F0508;
+  --bg-card: #18090E;
+  --bg-card-hover: #200B12;
+
+  --red-deep: #5D0A1B;
+  --red-blood: #8A0426;
+  --red-ruby: #B1042A;
+  --red-bright: #E11D2C;
+  --red-glow: rgba(225, 29, 44, 0.35);
+
+  --gold: #E8C77E;
+  --gold-deep: #B8954A;
+  --gold-light: #F5D89A;
+
+  --green: #A3D63E;
+  --green-soft: rgba(163, 214, 62, 0.12);
+
+  --text: #F4ECEB;
+  --text-soft: #C9BBB9;
+  --text-muted: #A0A0A0;
+  --text-faint: #5A4F4D;
+
+  --line: rgba(244, 236, 235, 0.07);
+  --line-strong: rgba(244, 236, 235, 0.14);
+  --line-gold: rgba(232, 199, 126, 0.22);
+  --line-green: rgba(163, 214, 62, 0.25);
+
+  --font-serif: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-sans: 'Manrope', system-ui, sans-serif;
+
+  --container: 920px;
+  --r-md: 14px;
+  --r-lg: 22px;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(232, 199, 126, 0.3);
+  transition: color .25s, border-color .25s;
+}
+a:hover { color: var(--gold-light); border-color: var(--gold-light); }
+
+img, svg { max-width: 100%; display: block; }
+ul, ol { list-style: none; }
+
+::selection { background: var(--red-ruby); color: #fff; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--red-deep); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--red-ruby); }
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* === HEADER === */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(8, 3, 10, 0.92);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border-bottom: 1px solid var(--line);
+}
+.header__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  height: 78px;
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--gold);
+  border: none;
+}
+.logo:hover { color: var(--gold-light); }
+.logo__mark {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 8px rgba(232, 199, 126, 0.18))
+          drop-shadow(0 0 12px rgba(225, 29, 44, 0.12));
+  transition: transform .4s cubic-bezier(.16,.84,.44,1);
+}
+.logo:hover .logo__mark { transform: scale(1.05) rotate(-2deg); }
+.logo__mark picture, .logo__mark img {
+  width: 100%; height: 100%; object-fit: contain; display: block;
+}
+.logo__text { display: flex; flex-direction: column; line-height: 1; }
+.logo__name {
+  font-family: var(--font-serif);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: 2.4px;
+  color: var(--gold);
+}
+.logo__tag {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  margin-top: 4px;
+}
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  border-radius: 100px;
+  border: 1px solid var(--line-strong);
+  color: var(--text);
+  transition: all .3s;
+  border-bottom: 1px solid var(--line-strong);
+}
+.btn-back:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(232, 199, 126, 0.04);
+}
+
+/* === HERO === */
+.legal-hero {
+  position: relative;
+  padding: 80px 0 60px;
+  overflow: hidden;
+  background: var(--bg);
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+.legal-hero__glow {
+  position: absolute;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--red-bright) 0%, transparent 65%);
+  opacity: .2;
+  filter: blur(100px);
+  pointer-events: none;
+}
+.legal-hero .container { position: relative; z-index: 1; }
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 22px;
+}
+.eyebrow__dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 12px var(--gold);
+}
+.legal-hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(38px, 5.5vw, 60px);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.legal-hero h1 em {
+  font-style: italic;
+  background: linear-gradient(135deg, #FF6B7A 0%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.legal-hero__sub {
+  font-size: 16px;
+  color: var(--text-soft);
+  max-width: 580px;
+  margin: 0 auto 28px;
+}
+.legal-hero__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: rgba(232, 199, 126, 0.06);
+  border: 1px solid var(--line-gold);
+  border-radius: 100px;
+  font-size: 12px;
+  color: var(--gold);
+  letter-spacing: 0.5px;
+}
+.legal-hero__meta strong { color: var(--gold-light); font-weight: 600; }
+
+/* === RESUMO RÁPIDO (cards de prazos no topo) === */
+.summary {
+  padding: 60px 0 0;
+  background: var(--bg-soft);
+}
+.summary__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 40px;
+}
+.summary-card {
+  padding: 28px 26px;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  transition: transform .35s ease, border-color .35s ease;
+  position: relative;
+  overflow: hidden;
+}
+.summary-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s ease;
+}
+.summary-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-gold);
+}
+.summary-card:hover::before { transform: scaleX(1); }
+.summary-card__num {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 56px;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-deep));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.summary-card__unit {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.5px;
+  -webkit-text-fill-color: var(--gold);
+  background: none;
+}
+.summary-card__title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 14px 0 8px;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.summary-card__desc {
+  font-size: 13.5px;
+  color: var(--text-soft);
+  line-height: 1.55;
+}
+
+/* === CONTEÚDO === */
+.legal-content {
+  padding: 30px 0 90px;
+  background: var(--bg-soft);
+}
+.legal-content section {
+  margin-bottom: 56px;
+  scroll-margin-top: 100px;
+}
+.legal-content section:last-child { margin-bottom: 0; }
+.legal-content h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 3.4vw, 34px);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 22px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+.legal-content h2 .num {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.7em;
+  font-weight: 500;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.legal-content h3 {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gold);
+  margin: 28px 0 14px;
+  letter-spacing: 0.3px;
+}
+.legal-content p {
+  font-size: 15.5px;
+  color: var(--text-soft);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.legal-content p:last-child { margin-bottom: 0; }
+.legal-content strong { color: var(--text); font-weight: 600; }
+.legal-content ul, .legal-content ol {
+  margin: 14px 0 20px 0;
+  padding-left: 0;
+}
+.legal-content ul li, .legal-content ol li {
+  font-size: 15.5px;
+  color: var(--text-soft);
+  line-height: 1.7;
+  margin-bottom: 12px;
+  padding-left: 28px;
+  position: relative;
+}
+.legal-content ul li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 13px;
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(232, 199, 126, 0.4);
+}
+.legal-content ol { counter-reset: olcount; }
+.legal-content ol li {
+  counter-increment: olcount;
+  padding-left: 32px;
+}
+.legal-content ol li::before {
+  content: counter(olcount) ".";
+  position: absolute;
+  left: 4px;
+  top: 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--gold);
+  font-size: 17px;
+}
+
+/* Cards */
+.card {
+  padding: 26px 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  margin: 22px 0;
+}
+.card--gold {
+  border: 1px solid var(--line-gold);
+  background: linear-gradient(135deg, rgba(232, 199, 126, 0.04) 0%, rgba(8, 3, 10, 0.3) 100%);
+}
+.card--red {
+  border-left: 3px solid var(--red-bright);
+  background: rgba(177, 4, 42, 0.06);
+}
+.card--green {
+  border-left: 3px solid var(--green);
+  background: var(--green-soft);
+}
+.card h3 { margin-top: 0; }
+
+/* Comparativo cobre/não cobre */
+.coverage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin: 22px 0;
+}
+.coverage-col {
+  padding: 26px 24px;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line);
+}
+.coverage-col--yes {
+  border: 1px solid var(--line-green);
+  background: linear-gradient(135deg, rgba(163, 214, 62, 0.04) 0%, rgba(8, 3, 10, 0.3) 100%);
+}
+.coverage-col--no {
+  border: 1px solid rgba(225, 29, 44, 0.2);
+  background: linear-gradient(135deg, rgba(225, 29, 44, 0.04) 0%, rgba(8, 3, 10, 0.3) 100%);
+}
+.coverage-col h3 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.coverage-col--yes h3 { color: var(--green); }
+.coverage-col--no h3 { color: #FF7A88; }
+.coverage-col ul li {
+  font-size: 14.5px;
+  padding: 8px 0 8px 24px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 0;
+}
+.coverage-col ul li:last-child { border-bottom: none; }
+.coverage-col--yes ul li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  top: 14px;
+  box-shadow: 0 0 8px rgba(163, 214, 62, 0.4);
+}
+.coverage-col--no ul li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: #FF7A88;
+  top: 14px;
+  box-shadow: 0 0 8px rgba(255, 122, 136, 0.4);
+}
+
+/* Steps timeline */
+.steps {
+  margin: 30px 0;
+  position: relative;
+}
+.steps::before {
+  content: '';
+  position: absolute;
+  left: 22px;
+  top: 18px;
+  bottom: 18px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent 0%, var(--line-gold) 20%, var(--line-gold) 80%, transparent 100%);
+}
+.step-item {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 18px;
+  margin-bottom: 24px;
+  position: relative;
+}
+.step-item:last-child { margin-bottom: 0; }
+.step-num {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-deep) 100%);
+  color: var(--bg);
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  font-style: italic;
+  border-radius: 50%;
+  box-shadow:
+    0 6px 16px -4px rgba(232, 199, 126, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border: 2px solid var(--bg-soft);
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+.step-content {
+  padding: 8px 0;
+}
+.step-content h3 {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+  margin-top: 0;
+}
+.step-content p {
+  font-size: 14.5px;
+  color: var(--text-soft);
+  margin-bottom: 0;
+  line-height: 1.65;
+}
+
+/* CTA WhatsApp */
+.cta-box {
+  text-align: center;
+  padding: 44px 32px;
+  background: linear-gradient(135deg, rgba(177, 4, 42, 0.12) 0%, rgba(8, 3, 10, 0.5) 100%);
+  border: 1px solid var(--line-gold);
+  border-radius: var(--r-lg);
+  margin: 40px 0;
+}
+.cta-box h3 {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+}
+.cta-box p {
+  font-size: 15px;
+  color: var(--text-soft);
+  margin-bottom: 26px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: #25D366;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 100px;
+  border: none !important;
+  cursor: pointer;
+  transition: transform .3s, box-shadow .3s, background .3s;
+  box-shadow: 0 8px 24px -6px rgba(37, 211, 102, 0.4);
+}
+.btn-wa:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -6px rgba(37, 211, 102, 0.55);
+  color: #fff;
+  background: #128C7E;
+}
+
+/* === FOOTER === */
+.footer {
+  padding: 50px 0 30px;
+  background: #050203;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+.footer__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  border: none;
+}
+.footer__brand .logo__mark { width: 44px; height: 44px; }
+.footer__brand .logo__name { font-size: 18px; }
+.footer__brand .logo__tag { font-size: 8.5px; }
+.footer__contact {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto 24px;
+}
+.footer__contact a { color: var(--gold); }
+.footer__nav {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  padding: 22px 0;
+  margin-bottom: 22px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.footer__nav a {
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  border: none;
+  font-weight: 500;
+}
+.footer__nav a:hover { color: var(--gold); }
+.footer__copy {
+  font-size: 11px;
+  color: var(--text-faint);
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .header__inner { height: 64px; gap: 10px; }
+  .logo__mark { width: 40px; height: 40px; }
+  .logo__name { font-size: 17px; letter-spacing: 2px; }
+  .logo__tag { font-size: 8px; }
+  .btn-back { padding: 9px 16px; font-size: 11px; }
+  .btn-back svg { display: none; }
+  .legal-hero { padding: 50px 0 40px; }
+  .summary { padding: 40px 0 0; }
+  .summary__grid { grid-template-columns: 1fr; gap: 12px; margin-bottom: 30px; }
+  .summary-card { padding: 24px 22px; }
+  .summary-card__num { font-size: 46px; }
+  .legal-content { padding: 20px 0 70px; }
+  .legal-content h2 { font-size: 24px; gap: 10px; }
+  .legal-content section { margin-bottom: 42px; }
+  .coverage-grid { grid-template-columns: 1fr; gap: 14px; }
+  .coverage-col { padding: 22px 20px; }
+  .footer__nav { gap: 18px; }
+  .cta-box { padding: 32px 22px; }
+  .cta-box h3 { font-size: 24px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header__inner">
+    <a href="index.html" class="logo" aria-label="Velmora · Voltar ao site">
+      <span class="logo__mark" aria-hidden="true">
+        <picture>
+          <source srcset="logo-velmora.webp" type="image/webp">
+          <img src="logo-velmora.png" alt="Logo Velmora" width="100" height="100" loading="eager" decoding="async">
+        </picture>
+      </span>
+      <span class="logo__text">
+        <span class="logo__name">VELMORA</span>
+        <span class="logo__tag">Saúde, Energia &amp; Desejo</span>
+      </span>
+    </a>
+    <a href="index.html" class="btn-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Voltar ao site
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="legal-hero">
+  <div class="legal-hero__glow" aria-hidden="true"></div>
+  <div class="container">
+    <span class="eyebrow"><span class="eyebrow__dot"></span> CDC · Garantia · Sem letra miúda</span>
+    <h1>Trocas e <em>Devoluções</em></h1>
+    <p class="legal-hero__sub">
+      Aqui explicamos, em português claro, todos os seus direitos: arrependimento de 7 dias, garantia de 30 dias, produto avariado, como solicitar reembolso e em quanto tempo o dinheiro volta.
+    </p>
+    <div class="legal-hero__meta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      Última atualização: <strong>Maio de 2026</strong>
+    </div>
+  </div>
+</section>
+
+<!-- RESUMO RÁPIDO -->
+<section class="summary">
+  <div class="container">
+    <div class="summary__grid">
+      <div class="summary-card">
+        <div class="summary-card__num">7<span class="summary-card__unit">dias</span></div>
+        <div class="summary-card__title">Arrependimento</div>
+        <div class="summary-card__desc">Mudou de ideia? Tem 7 dias do recebimento pra devolver sem precisar justificar (CDC art. 49).</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-card__num">30<span class="summary-card__unit">dias</span></div>
+        <div class="summary-card__title">Garantia de satisfação</div>
+        <div class="summary-card__desc">Usou e não funcionou pra você? Acione o SAC em até 30 dias do recebimento.</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-card__num">72<span class="summary-card__unit">horas</span></div>
+        <div class="summary-card__title">Produto avariado</div>
+        <div class="summary-card__desc">Chegou amassado, vencido ou com lacre violado? Avise em até 72h do recebimento.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEÚDO -->
+<main class="legal-content">
+  <div class="container">
+
+    <!-- 1 -->
+    <section id="introducao">
+      <h2><span class="num">01</span> Introdução</h2>
+      <p>A Velmora opera dentro do que determina o <strong>Código de Defesa do Consumidor (Lei 8.078/1990)</strong> e oferece, além do que a lei garante, uma <strong>garantia de satisfação adicional de 30 dias</strong>. Esta página detalha todas as situações de troca, devolução, garantia e reembolso de forma transparente.</p>
+      <div class="card card--gold">
+        <p style="margin:0;"><strong>Em uma frase:</strong> a gente quer cliente satisfeito, não cliente que se arrependeu. Se algo deu errado — chegou avariado, não combinou com você, mudou de ideia — fale com a gente que resolvemos.</p>
+      </div>
+    </section>
+
+    <!-- 2 — DIREITO DE ARREPENDIMENTO -->
+    <section id="arrependimento">
+      <h2><span class="num">02</span> Direito de arrependimento (7 dias)</h2>
+      <p>Conforme o <strong>artigo 49 do CDC</strong>, em compras feitas <strong>fora do estabelecimento comercial</strong> (como a nossa, online), você pode desistir do pedido em até <strong>7 (sete) dias corridos</strong> contados a partir do recebimento do produto — <strong>sem precisar justificar</strong>.</p>
+
+      <div class="card card--green">
+        <h3>✓ O que está incluído</h3>
+        <ul style="margin: 8px 0 0;">
+          <li>Devolução integral do valor pago — incluindo o frete original</li>
+          <li>Logística reversa por nossa conta (postagem do retorno via Correios sem custo pra você)</li>
+          <li>Sem taxa, sem multa, sem questionamento</li>
+        </ul>
+      </div>
+
+      <h3>Condições para devolução</h3>
+      <ul>
+        <li>Solicitação dentro do prazo de <strong>7 dias corridos</strong> após o recebimento.</li>
+        <li>Produto na <strong>embalagem original, lacrado e sem violação</strong>.</li>
+        <li>Sem sinais de uso, abertura, perda de conteúdo ou alteração.</li>
+      </ul>
+
+      <p>Se o produto já foi aberto ou usado, o direito de arrependimento não se aplica — mas a <strong>garantia de satisfação Velmora (30 dias)</strong> talvez sim. Veja a próxima seção.</p>
+    </section>
+
+    <!-- 3 — GARANTIA DE SATISFAÇÃO -->
+    <section id="garantia-satisfacao">
+      <h2><span class="num">03</span> Garantia de satisfação Velmora (30 dias)</h2>
+      <p>Esta é uma garantia <strong>adicional</strong> e voluntária da Velmora — você pode ter usado o produto, conforme as orientações de uso, e mesmo assim não ter ficado satisfeito(a) com o resultado. Nesse caso, abrimos análise da sua solicitação dentro de <strong>30 dias do recebimento</strong>.</p>
+
+      <h3>Como funciona</h3>
+      <ol>
+        <li>Você usou o produto seguindo as orientações do rótulo (1 dose por dia, durante o período mínimo recomendado).</li>
+        <li>Não ficou satisfeito(a) com a experiência.</li>
+        <li>Aciona o SAC dentro de 30 dias do recebimento.</li>
+        <li>Conversamos pra entender o caso e, sendo cabível, procedemos com a devolução do valor.</li>
+      </ol>
+
+      <div class="card card--red">
+        <h3>⚠ Importante</h3>
+        <p style="margin: 8px 0 0;">A garantia de satisfação <strong>não cobre</strong> resultados específicos como perda de peso, ganho de energia ou efeitos terapêuticos — pois resultados variam de pessoa para pessoa, e o produto é um <strong>suplemento alimentar</strong>, não medicamento. A garantia cobre <strong>insatisfação geral com a experiência</strong> dentro do uso responsável do produto.</p>
+      </div>
+    </section>
+
+    <!-- 4 — PRODUTO AVARIADO -->
+    <section id="avariado">
+      <h2><span class="num">04</span> Produto avariado, vencido ou em desacordo</h2>
+      <p>Se você recebeu o produto:</p>
+      <ul>
+        <li>Com a <strong>embalagem violada</strong> (lacre quebrado, pote aberto)</li>
+        <li>Com <strong>prazo de validade vencido</strong> ou próximo a vencer</li>
+        <li><strong>Avariado</strong> (amassado, vazando, conteúdo perdido)</li>
+        <li><strong>Em desacordo com o pedido</strong> (kit errado, sabor errado, quantidade errada)</li>
+      </ul>
+
+      <p>👉 <strong>Avise em até 72 horas após o recebimento</strong>, pelo WhatsApp <a href="https://wa.me/5541999870033" target="_blank" rel="noopener">(41) 99987-0033</a> ou e-mail <a href="mailto:loire.souza@hotmail.com">loire.souza@hotmail.com</a>, com:</p>
+
+      <ul>
+        <li>Número do pedido</li>
+        <li><strong>Fotos do produto e da embalagem externa</strong> (caixa de envio)</li>
+        <li>Descrição breve do que aconteceu</li>
+      </ul>
+
+      <p>Resolvemos com <strong>troca por novo produto ou reembolso integral</strong>, sem custo pra você. A escolha entre troca ou reembolso é sua.</p>
+    </section>
+
+    <!-- 5 — COMO SOLICITAR -->
+    <section id="como-solicitar">
+      <h2><span class="num">05</span> Como solicitar troca, devolução ou reembolso</h2>
+
+      <div class="steps">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>Entre em contato</h3>
+            <p>WhatsApp <a href="https://wa.me/5541999870033" target="_blank" rel="noopener">(41) 99987-0033</a> ou e-mail <a href="mailto:loire.souza@hotmail.com">loire.souza@hotmail.com</a>. Atendimento humano, sem fila, sem bot.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>Informe os dados</h3>
+            <p>Número do pedido, motivo da solicitação, e qual desfecho você prefere (troca, devolução ou reembolso). Em casos de produto avariado, envie fotos.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>Receba a orientação</h3>
+            <p>Em até 2 dias úteis, retornamos com as instruções: como postar o retorno, qual o código da logística reversa dos Correios, e quais documentos enviar.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3>Poste o produto</h3>
+            <p>Devolva o produto na embalagem original (quando aplicável). A logística reversa é por nossa conta — você recebe o código pra postagem gratuita nos Correios.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h3>Análise e desfecho</h3>
+            <p>Após recebermos o produto e conferirmos, em até <strong>7 dias úteis</strong> finalizamos: enviamos o produto novo (troca), o produto correto (desacordo) ou processamos o reembolso.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 — REEMBOLSO -->
+    <section id="reembolso">
+      <h2><span class="num">06</span> Como funciona o reembolso</h2>
+      <p>O reembolso é processado <strong>pelo mesmo meio de pagamento</strong> usado na compra. Os prazos variam conforme a forma original:</p>
+
+      <div class="card">
+        <h3>Prazos médios de reembolso</h3>
+        <ul style="margin: 10px 0 0;">
+          <li><strong>Pix:</strong> em até 2 dias úteis após aprovação da solicitação, direto na conta de origem do pagamento.</li>
+          <li><strong>Cartão de crédito:</strong> o estorno é processado em até 7 dias úteis pela operadora — pode aparecer na fatura atual ou na próxima, dependendo da data de fechamento.</li>
+          <li><strong>Boleto bancário:</strong> em até 10 dias úteis, via TED ou Pix para a conta indicada por você.</li>
+        </ul>
+      </div>
+
+      <p>O <strong>valor reembolsado</strong> inclui sempre o preço do produto. O frete original é incluído nos casos de:</p>
+      <ul>
+        <li>Direito de arrependimento (CDC art. 49)</li>
+        <li>Produto avariado, vencido ou em desacordo</li>
+        <li>Cancelamento de pedido por nossa parte (estoque, fraude etc.)</li>
+      </ul>
+      <p>Em casos de garantia de satisfação após uso do produto, o reembolso pode ser parcial — combinado individualmente conforme o caso.</p>
+    </section>
+
+    <!-- 7 — COBERTURA -->
+    <section id="cobertura">
+      <h2><span class="num">07</span> O que cobrimos e o que não cobrimos</h2>
+
+      <div class="coverage-grid">
+        <div class="coverage-col coverage-col--yes">
+          <h3>✓ Cobrimos</h3>
+          <ul>
+            <li>Arrependimento em até 7 dias do recebimento (produto lacrado)</li>
+            <li>Garantia de satisfação em até 30 dias (produto usado conforme orientação)</li>
+            <li>Produto avariado, danificado no transporte</li>
+            <li>Produto com prazo de validade vencido na entrega</li>
+            <li>Produto com lacre violado ou embalagem rompida</li>
+            <li>Pedido em desacordo (kit errado, sabor errado, quantidade incorreta)</li>
+            <li>Pedido extraviado pelos Correios (com confirmação da transportadora)</li>
+          </ul>
+        </div>
+        <div class="coverage-col coverage-col--no">
+          <h3>✗ Não cobrimos</h3>
+          <ul>
+            <li>Resultados específicos (perda de peso, energia, efeito terapêutico)</li>
+            <li>Produto danificado por mau armazenamento após o recebimento (calor, umidade, contato com químicos)</li>
+            <li>Produto vencido por permanência prolongada do cliente sem uso</li>
+            <li>Reações em pessoas com restrições não consultadas previamente</li>
+            <li>Solicitações fora dos prazos legais (7 dias arrependimento, 30 dias garantia, 72h avaria)</li>
+            <li>Produto comprado fora dos canais oficiais Velmora (revenda não autorizada)</li>
+            <li>Endereços de entrega incorretos fornecidos pelo cliente</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 — PEDIDO NÃO RECEBIDO -->
+    <section id="nao-recebido">
+      <h2><span class="num">08</span> Pedido não recebido ou extraviado</h2>
+      <p>Se o prazo de entrega estimado já passou e você ainda não recebeu o produto:</p>
+
+      <ol>
+        <li><strong>Confira o status no rastreamento</strong> — o código foi enviado pelo WhatsApp/e-mail após a postagem.</li>
+        <li>Se o status indicar <strong>"objeto entregue"</strong> mas você não recebeu, verifique com vizinhos, porteiro ou no Correios local — pode ter sido entregue a alguém autorizado.</li>
+        <li>Se o status indicar <strong>"em trânsito"</strong> com mais de 5 dias úteis sem atualização, ou <strong>"devolvido ao remetente"</strong>, fale com a gente.</li>
+      </ol>
+
+      <p>Em casos confirmados de <strong>extravio</strong>, abrimos investigação junto aos Correios e:</p>
+      <ul>
+        <li>Reenviamos o produto sem custo adicional, ou</li>
+        <li>Reembolsamos integralmente, conforme sua preferência.</li>
+      </ul>
+
+      <p>Endereços fornecidos incorretamente pelo cliente que resultem em devolução ao remetente podem gerar <strong>custo adicional de reenvio</strong> — comunicado antes da nova postagem.</p>
+    </section>
+
+    <!-- 9 — CASOS ESPECIAIS -->
+    <section id="casos-especiais">
+      <h2><span class="num">09</span> Casos especiais</h2>
+
+      <h3>9.1 Trocas entre kits</h3>
+      <p>Comprou o Kit Essencial (1 mês) mas queria o Kit Ritual (3 meses)? Avise em até 24h após o pedido — antes da postagem — que ajustamos a diferença e enviamos o kit correto. Após postagem, segue regra normal de devolução/troca.</p>
+
+      <h3>9.2 Mudança de sabor</h3>
+      <p>Atualmente trabalhamos exclusivamente com o sabor frutas vermelhas no QUERO+. Quando lançarmos novos sabores, regras específicas de troca serão informadas.</p>
+
+      <h3>9.3 Pedidos em promoção</h3>
+      <p>Produtos comprados em promoções, descontos ou kits especiais seguem as <strong>mesmas regras de troca, devolução e garantia</strong> dos pedidos com preço regular. O reembolso é feito pelo valor efetivamente pago.</p>
+
+      <h3>9.4 Pedidos pagos com cupom ou desconto</h3>
+      <p>Em caso de devolução, o reembolso é feito apenas pelo valor monetário pago. Cupons de desconto utilizados não são restituídos, mas podem ser substituídos por novos cupons em casos específicos — combinado individualmente.</p>
+
+      <h3>9.5 Múltiplos itens em um mesmo pedido</h3>
+      <p>Você pode devolver apenas parte dos itens. O reembolso será proporcional ao(s) item(ns) devolvido(s), incluindo a parcela proporcional do frete (em devoluções por arrependimento, avaria ou desacordo).</p>
+    </section>
+
+    <!-- 10 — CTA WHATSAPP -->
+    <section id="cta">
+      <div class="cta-box">
+        <h3>Precisa abrir uma solicitação?</h3>
+        <p>Atendimento humano via WhatsApp. Resposta rápida, sem fila, sem bot. Tirar dúvida não é compromisso.</p>
+        <a href="https://wa.me/5541999870033?text=Ol%C3%A1!%20Quero%20abrir%20uma%20solicita%C3%A7%C3%A3o%20de%20troca%2Fdevolu%C3%A7%C3%A3o" target="_blank" rel="noopener" class="btn-wa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91A9.86 9.86 0 0 0 12.04 2zm0 18.15h-.01a8.18 8.18 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.21 8.21 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.23-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.69 8.23-8.23 8.23z"/></svg>
+          Falar no WhatsApp agora
+        </a>
+      </div>
+    </section>
+
+    <!-- 11 — CONTATO -->
+    <section id="contato">
+      <h2><span class="num">10</span> Contato e canais oficiais</h2>
+      <p>Para qualquer solicitação relacionada a trocas, devoluções, garantia ou reembolso, use exclusivamente nossos canais oficiais:</p>
+
+      <div class="card card--gold">
+        <h3>Velmora — SAC e atendimento</h3>
+        <p style="margin-bottom:8px;"><strong>WhatsApp:</strong> <a href="https://wa.me/5541999870033" target="_blank" rel="noopener">(41) 99987-0033</a></p>
+        <p style="margin-bottom:8px;"><strong>E-mail:</strong> <a href="mailto:loire.souza@hotmail.com">loire.souza@hotmail.com</a></p>
+        <p style="margin-bottom:8px;"><strong>Localização:</strong> Curitiba/PR — Brasil</p>
+        <p style="margin-bottom:0;"><strong>Horário:</strong> segunda a sexta, das 9h às 18h (exceto feriados)</p>
+      </div>
+
+      <p>Para mais informações, consulte também:</p>
+      <ul>
+        <li><a href="termos.html">Termos de Uso</a></li>
+        <li><a href="privacidade.html">Política de Privacidade</a></li>
+        <li><a href="cookies.html">Política de Cookies</a></li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <a href="index.html" class="footer__brand" aria-label="Velmora">
+      <span class="logo__mark" aria-hidden="true">
+        <picture>
+          <source srcset="logo-velmora.webp" type="image/webp">
+          <img src="logo-velmora.png" alt="Logo Velmora" width="100" height="100" loading="lazy" decoding="async">
+        </picture>
+      </span>
+      <span class="logo__text">
+        <span class="logo__name">VELMORA</span>
+        <span class="logo__tag">Saúde, Energia &amp; Desejo</span>
+      </span>
+    </a>
+    <p class="footer__contact">
+      Linha Velmora · Curitiba/PR · Brasil<br>
+      <a href="mailto:loire.souza@hotmail.com">loire.souza@hotmail.com</a> · <a href="https://wa.me/5541999870033" target="_blank" rel="noopener">(41) 99987-0033</a>
+    </p>
+    <nav class="footer__nav">
+      <a href="index.html">Site</a>
+      <a href="privacidade.html">Privacidade</a>
+      <a href="cookies.html">Cookies</a>
+      <a href="termos.html">Termos</a>
+      <a href="trocas.html">Trocas</a>
+      <a href="https://wa.me/5541999870033" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+    <p class="footer__copy">© <span id="year">2026</span> Velmora · Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
