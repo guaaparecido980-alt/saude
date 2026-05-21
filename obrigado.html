@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#5D0A1B">
+  <meta name="theme-color" content="#04060A">
 
   <!-- noindex pra essa página NÃO aparecer no Google (é só pra quem comprou) -->
   <meta name="robots" content="noindex, nofollow">
@@ -33,7 +33,7 @@
   (function() {
     var urlParams = new URLSearchParams(window.location.search);
     var valor = parseFloat(urlParams.get('valor')) || 0;
-    var produto = urlParams.get('produto') || 'QUERO+';
+    var produto = urlParams.get('produto') || 'VELMO BLACK Drink';
     var kit = urlParams.get('kit') || 'kit';
 
     fbq('track', 'Purchase', {
@@ -70,7 +70,7 @@
         currency: 'BRL',
         items: [{
           item_id: 'quero-mais',
-          item_name: 'QUERO+ ' + kit,
+          item_name: 'VELMO BLACK Drink ' + kit,
           item_category: 'Suplemento Alimentar',
           item_brand: 'Velmora',
           price: valor,
@@ -86,28 +86,28 @@
 html { -webkit-text-size-adjust: 100%; }
 
 :root {
-  --bg: #08030A;
-  --bg-soft: #0F0508;
-  --bg-card: #18090E;
+  --bg: #04060A;
+  --bg-soft: #070B12;
+  --bg-card: #0C1320;
 
-  --red-deep: #5D0A1B;
-  --red-blood: #8A0426;
-  --red-bright: #E11D2C;
-  --red-glow: rgba(225, 29, 44, 0.35);
+  --red-deep: #0A4A6E;
+  --red-blood: #0E6B9E;
+  --red-bright: #29B6F6;
+  --red-glow: rgba(41, 182, 246, 0.35);
 
-  --gold: #E8C77E;
-  --gold-deep: #B8954A;
-  --gold-light: #F5D89A;
+  --gold: #5FD2FF;
+  --gold-deep: #2BA3DB;
+  --gold-light: #A6E9FF;
 
   --green: #25D366;
   --green-dark: #128C7E;
 
-  --text: #F4ECEB;
-  --text-soft: #C9BBB9;
+  --text: #EAF2F8;
+  --text-soft: #B5C4D2;
   --text-muted: #A0A0A0;
 
-  --line: rgba(244, 236, 235, 0.07);
-  --line-gold: rgba(232, 199, 126, 0.22);
+  --line: rgba(234, 242, 248, 0.07);
+  --line-gold: rgba(95, 210, 255, 0.22);
 
   --font-serif: 'Cormorant Garamond', 'Times New Roman', serif;
   --font-sans: 'Manrope', system-ui, sans-serif;
@@ -185,8 +185,8 @@ main {
 .logo__mark {
   width: 56px;
   height: 56px;
-  filter: drop-shadow(0 2px 8px rgba(232, 199, 126, 0.18))
-          drop-shadow(0 0 12px rgba(225, 29, 44, 0.12));
+  filter: drop-shadow(0 2px 8px rgba(95, 210, 255, 0.18))
+          drop-shadow(0 0 12px rgba(41, 182, 246, 0.12));
 }
 .logo__mark img, .logo__mark picture {
   width: 100%;
@@ -229,7 +229,7 @@ main {
   align-items: center;
   justify-content: center;
   box-shadow:
-    0 20px 40px -10px rgba(232, 199, 126, 0.4),
+    0 20px 40px -10px rgba(95, 210, 255, 0.4),
     inset 0 2px 0 rgba(255, 255, 255, 0.3),
     inset 0 -3px 8px rgba(0, 0, 0, 0.15);
   animation: bounceIn .8s cubic-bezier(.34, 1.56, .64, 1);
@@ -294,7 +294,7 @@ h1 {
 }
 h1 em {
   font-style: italic;
-  background: linear-gradient(135deg, #FF6B7A 0%, var(--gold) 100%);
+  background: linear-gradient(135deg, #5FD2FF 0%, var(--gold) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -306,7 +306,7 @@ h1 em {
   color: var(--gold);
   margin: -8px 0 12px;
   transform: rotate(-3deg);
-  text-shadow: 0 4px 20px rgba(232, 199, 126, 0.3);
+  text-shadow: 0 4px 20px rgba(95, 210, 255, 0.3);
   animation: fadeUp .8s ease-out .9s both;
 }
 .lead {
