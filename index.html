@@ -82,9 +82,9 @@
     "offers": {
       "@type": "AggregateOffer",
       "priceCurrency": "BRL",
-      "lowPrice": "209.90",
-      "highPrice": "851.80",
-      "offerCount": "4",
+      "lowPrice": "167.92",
+      "highPrice": "369.20",
+      "offerCount": "3",
       "availability": "https://schema.org/InStock",
       "seller": {"@type": "Organization", "name": "Velmora"}
     }
@@ -1358,10 +1358,10 @@ em { font-style: italic; }
 .offer .container { position: relative; z-index: 1; }
 .offer__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
   margin-bottom: 36px;
-  max-width: 1280px;
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1371,6 +1371,7 @@ em { font-style: italic; }
   .kit--featured:hover { transform: translateY(-6px); }
 }
 .kit {
+  position: relative;
   padding: 32px 24px;
   background: rgba(8, 3, 10, .75);
   backdrop-filter: blur(10px);
@@ -1482,12 +1483,86 @@ em { font-style: italic; }
 }
 .kit__qty strong { color: var(--gold); }
 
+.promo-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  max-width: 720px;
+  margin: 0 auto 28px;
+  padding: 14px 22px;
+  background: linear-gradient(135deg, rgba(41, 182, 246, 0.12), rgba(95, 210, 255, 0.06));
+  border: 1.5px solid rgba(41, 182, 246, 0.4);
+  border-radius: 14px;
+  text-align: center;
+  flex-wrap: wrap;
+}
+.promo-banner__tag {
+  display: inline-block;
+  background: linear-gradient(135deg, #29B6F6, #1593D6);
+  color: #04060A;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 5px 11px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.promo-banner__text {
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+}
+.promo-banner__text strong {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.kit__discount-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: linear-gradient(135deg, #29B6F6, #1593D6);
+  color: #04060A;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 6px 11px;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(41, 182, 246, 0.4);
+  z-index: 2;
+}
+
+.kit__old-price {
+  display: block;
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 4px;
+  letter-spacing: 0.3px;
+}
+.kit__old-price::before {
+  content: "";
+  display: inline-block;
+  width: 56px;
+  height: 1px;
+  background: var(--text-muted);
+  vertical-align: middle;
+  margin-right: 6px;
+  position: relative;
+  top: -2px;
+}
+
 .kit__price {
   display: flex;
   align-items: baseline;
   gap: 4px;
   margin-bottom: 8px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 .kit__currency {
   font-family: var(--font-sans);
@@ -2932,8 +3007,13 @@ em { font-style: italic; }
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow eyebrow--center eyebrow--gold"><span class="eyebrow__dot"></span> Escolha o seu kit</span>
-      <h2 class="section-title">Quatro opções <em>pensadas para sua rotina</em></h2>
+      <h2 class="section-title">Três opções <em>pensadas para sua rotina</em></h2>
       <p class="section-sub">Quanto mais potes, menor o valor por dose. Compra 100% online — pagamento seguro via Pix, cartão ou boleto. Dúvidas? Fale no WhatsApp antes de comprar.</p>
+    </div>
+
+    <div class="promo-banner reveal">
+      <span class="promo-banner__tag">PROMOÇÃO</span>
+      <span class="promo-banner__text"><strong>20% de desconto</strong> em todos os kits · por tempo limitado</span>
     </div>
 
     <div class="offer__grid">
@@ -2943,20 +3023,22 @@ em { font-style: italic; }
           <h3 class="kit__name">Essencial</h3>
           <p class="kit__sub">1 mês de VELMO BLACK</p>
         </header>
+        <span class="kit__discount-badge">−20% OFF</span>
         <div class="kit__qty"><strong>1 pote</strong> · 150g · 30 porções</div>
         <div class="kit__price">
+          <span class="kit__old-price">De R$ 209,90 por</span>
           <span class="kit__currency">R$</span>
-          <span class="kit__value">209</span>
-          <span class="kit__cents">,90</span>
+          <span class="kit__value">167</span>
+          <span class="kit__cents">,92</span>
         </div>
-        <p class="kit__per-unit">≈ <strong>R$ 7,00 por dose</strong></p>
+        <p class="kit__per-unit">≈ <strong>R$ 5,60 por dose</strong> · economia de R$ 41,98</p>
         <ul class="kit__feats">
           <li>1 pote VELMO BLACK Morango</li>
           <li>Garantia de satisfação 30 dias</li>
           <li>Atendimento humano via WhatsApp</li>
-          <li>Frete sob consulta</li>
+          <li>Frete calculado no checkout</li>
         </ul>
-        <a href="https://pay.hest.com.br/6d627aaf-36b3-4003-b4b3-76c10c0a1599" class="btn kit__cta" data-track="oferta_kit_essencial" target="_blank" rel="noopener">
+        <a href="https://pay.hest.com.br/ab1cb107-5f6a-4471-91e6-004034dced60" class="btn kit__cta" data-track="oferta_kit_essencial" target="_blank" rel="noopener">
           Comprar agora
         </a>
       </article>
@@ -2968,21 +3050,23 @@ em { font-style: italic; }
           <h3 class="kit__name">Leveza</h3>
           <p class="kit__sub">3 meses de VELMO BLACK</p>
         </header>
+        <span class="kit__discount-badge">−20% OFF</span>
         <div class="kit__qty"><strong>3 potes</strong> · 450g · 90 porções</div>
         <div class="kit__price">
+          <span class="kit__old-price">De R$ 335,70 por</span>
           <span class="kit__currency">R$</span>
-          <span class="kit__value">335</span>
-          <span class="kit__cents">,70</span>
+          <span class="kit__value">268</span>
+          <span class="kit__cents">,56</span>
         </div>
-        <p class="kit__per-unit">≈ <strong>R$ 3,73 por dose</strong> · economia de R$ 294,00</p>
+        <p class="kit__per-unit">≈ <strong>R$ 2,98 por dose</strong> · economia de R$ 67,14</p>
         <ul class="kit__feats">
           <li>3 potes VELMO BLACK Morango</li>
-          <li><strong>Frete grátis para todo Brasil</strong></li>
           <li>Garantia de satisfação 30 dias</li>
           <li>Atendimento humano via WhatsApp</li>
           <li>Ideal para sustentar constância</li>
+          <li>Frete calculado no checkout</li>
         </ul>
-        <a href="https://pay.hest.com.br/94fd198b-7807-4a62-9ecd-97810b45402d" class="btn kit__cta kit__cta--featured" data-track="oferta_kit_ritual" target="_blank" rel="noopener">
+        <a href="https://pay.hest.com.br/42b4943b-62b8-482d-b67a-977e12a1f92c" class="btn kit__cta kit__cta--featured" data-track="oferta_kit_ritual" target="_blank" rel="noopener">
           Comprar agora
         </a>
       </article>
@@ -2993,46 +3077,22 @@ em { font-style: italic; }
           <h3 class="kit__name">Constância</h3>
           <p class="kit__sub">5 meses de VELMO BLACK</p>
         </header>
+        <span class="kit__discount-badge">−20% OFF</span>
         <div class="kit__qty"><strong>5 potes</strong> · 750g · 150 porções</div>
         <div class="kit__price">
+          <span class="kit__old-price">De R$ 461,50 por</span>
           <span class="kit__currency">R$</span>
-          <span class="kit__value">461</span>
-          <span class="kit__cents">,50</span>
+          <span class="kit__value">369</span>
+          <span class="kit__cents">,20</span>
         </div>
-        <p class="kit__per-unit">≈ <strong>R$ 3,08 por dose</strong> · economia de R$ 588,00</p>
+        <p class="kit__per-unit">≈ <strong>R$ 2,46 por dose</strong> · economia de R$ 92,30</p>
         <ul class="kit__feats">
           <li>5 potes VELMO BLACK Morango</li>
-          <li><strong>Frete grátis para todo Brasil</strong></li>
           <li>Garantia de satisfação 30 dias</li>
           <li>Atendimento prioritário</li>
+          <li>Frete calculado no checkout</li>
         </ul>
-        <a href="https://pay.hest.com.br/84f3e669-f49e-4049-ba2b-6e2f5d7c4ad7" class="btn kit__cta kit__cta--gold" data-track="oferta_kit_constancia" target="_blank" rel="noopener">
-          Comprar agora
-        </a>
-      </article>
-
-      <!-- Kit 4: 12 meses - PREMIUM -->
-      <article class="kit kit--premium reveal">
-        <span class="kit__ribbon kit__ribbon--gold">Maior economia ✦</span>
-        <header class="kit__head">
-          <h3 class="kit__name">Anual</h3>
-          <p class="kit__sub">12 meses de VELMO BLACK</p>
-        </header>
-        <div class="kit__qty"><strong>12 potes</strong> · 1800g · 360 porções</div>
-        <div class="kit__price">
-          <span class="kit__currency">R$</span>
-          <span class="kit__value">851</span>
-          <span class="kit__cents">,80</span>
-        </div>
-        <p class="kit__per-unit">≈ <strong>R$ 2,37 por dose</strong> · economia de R$ 1.667,00</p>
-        <ul class="kit__feats">
-          <li>12 potes VELMO BLACK Morango</li>
-          <li><strong>Frete grátis para todo Brasil</strong></li>
-          <li><strong>Menor preço por dose</strong></li>
-          <li>Garantia de satisfação 30 dias</li>
-          <li>Atendimento VIP via WhatsApp</li>
-        </ul>
-        <a href="https://pay.hest.com.br/f66829d2-74be-4155-96c0-3c5e55a6946d" class="btn kit__cta kit__cta--premium" data-track="oferta_kit_anual" target="_blank" rel="noopener">
+        <a href="https://pay.hest.com.br/dea90b26-c8ab-43d3-856a-705de4409845" class="btn kit__cta kit__cta--gold" data-track="oferta_kit_constancia" target="_blank" rel="noopener">
           Comprar agora
         </a>
       </article>
